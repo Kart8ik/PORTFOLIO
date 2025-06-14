@@ -8,27 +8,27 @@ const AnimatedBox = ({ children, from, className, scrollYProgress }) => {
     switch (direction) {
       case 'left':
         return {
-          x: useTransform(progress, animationRange, [-100, 0]),
-          opacity: useTransform(progress, animationRange, [0, 1]),
+          x: useTransform(progress, animationRange, [-700, 0]),
+          opacity: useTransform(progress, animationRange, [1, 1]),
         }
       case 'right':
         return {
-          x: useTransform(progress, animationRange, [100, 0]),
-          opacity: useTransform(progress, animationRange, [0, 1]),
+          x: useTransform(progress, animationRange, [700, 0]),
+          opacity: useTransform(progress, animationRange, [1, 1]),
         }
       case 'top':
         return {
-          y: useTransform(progress, animationRange, [-100, 0]),
-          opacity: useTransform(progress, animationRange, [0, 1]),
+          y: useTransform(progress, animationRange, [-600, 0]),
+          opacity: useTransform(progress, animationRange, [1, 1]),
         }
       case 'bottom':
         return {
-          y: useTransform(progress, animationRange, [100, 0]),
-          opacity: useTransform(progress, animationRange, [0, 1]),
+          y: useTransform(progress, animationRange, [600, 0]),
+          opacity: useTransform(progress, animationRange, [1, 1]),
         }
       default:
         return {
-          opacity: useTransform(progress, animationRange, [0, 1]),
+          opacity: useTransform(progress, animationRange, [1, 1]),
         }
     }
   }
