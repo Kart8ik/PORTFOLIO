@@ -3,7 +3,7 @@ import React from 'react'
 const First = () => {
   return (
     <div className="w-screen h-screen flex items-center justify-center">
-      <div className="w-full h-full grid grid-cols-[repeat(6,minmax(0,1fr))_74px_74px_repeat(6,minmax(0,1fr))] grid-rows-[repeat(3,minmax(0,1fr))_74px_74px_repeat(3,minmax(0,1fr))] gap-3 p-3">
+      <div className="w-full h-full grid grid-cols-[repeat(6,minmax(0,1fr))_62px_62px_repeat(6,minmax(0,1fr))] grid-rows-[repeat(3,minmax(0,1fr))_62px_62px_repeat(3,minmax(0,1fr))] gap-3 p-3">
         {/* Top Left Large Box */}
         <div className="box1 border-2 border-[#3b3b4f] rounded-xl bg-[#181926]/70 backdrop-blur-sm col-start-1 col-end-7 row-start-1 row-end-6" />
         
