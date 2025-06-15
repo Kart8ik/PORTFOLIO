@@ -3,6 +3,10 @@ import { useScroll, motion, useTransform } from 'framer-motion'
 import AnimatedBox from '../components/AnimatedBox'
 import profile from '@/assets/profile.png' 
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter, CardAction } from '@/components/ui/card'
+import github from '@/assets/github.png'
+import linkedin from '@/assets/linkedin.png'
+import instagram from '@/assets/instagram.png'
+import leetcode from '@/assets/leetcode.png'
 
 const First = () => {
   const scrollRef = useRef(null)
@@ -72,10 +76,13 @@ const First = () => {
                 className="box3 col-start-6 col-end-9 row-start-1 row-end-3 sm:col-start-14 sm:col-end-15 sm:row-start-1 sm:row-end-4 z-20"
                 scrollYProgress={scrollYProgress}
               >
-                <Card className="w-full h-full">
-                  <CardHeader>
-                    <CardTitle>Shri Karthik A</CardTitle>
-                  </CardHeader>
+                <Card className="w-full h-full px-0 py-0">
+                    <div className="flex flex-col w-full h-full items-center justify-between py-4">
+                      <img src={github} alt="GitHub" className="w-13 h-13" />
+                      <img src={linkedin} alt="LinkedIn" className="w-13 h-13" />
+                      <img src={instagram} alt="Instagram" className="w-13 h-13" />
+                      <img src={leetcode} alt="LeetCode" className="w-13 h-13" />
+                    </div>
                 </Card>
               </AnimatedBox>
 
@@ -95,7 +102,7 @@ const First = () => {
               {/* Middle Box with absolute centering */}
               <div className="box5-container col-start-4 col-end-6 row-start-7 row-end-9 sm:col-start-7 sm:col-end-9 sm:row-start-4 sm:row-end-6 relative">
                 <motion.div
-                  className="box5 absolute top-1/2 left-1/2 z-10 bg-card/50 backdrop-blur-sm border-2 rounded-sm w-full h-full flex flex-row overflow-hidden"
+                  className="box5 absolute top-1/2 left-1/2 z-10 bg-card/50 backdrop-blur-sm border-3 rounded-md w-full h-full flex flex-row overflow-hidden"
                   style={{
                     width,
                     height,
@@ -111,7 +118,7 @@ const First = () => {
                       <div className="text-2xl text-card-foreground font-light mt-auto">Bengaluru, India</div>
                     </motion.div>
                     <motion.div className="flex items-center justify-center" style={{ flexBasis: imageFlexBasis, flexShrink: 0 }}>
-                      <motion.img src={profile} alt="Profile" style={{ width: imageSize, height: imageSize }} className="rounded-sm border-2 border" />
+                      <motion.img src={profile} alt="Profile" style={{ width: imageSize, height: imageSize }} className="rounded-md" />
                     </motion.div>
                 </motion.div>
               </div>
@@ -124,8 +131,18 @@ const First = () => {
               >
                 <Card className="w-full h-full">
                   <CardHeader>
-                    <CardTitle>Shri Karthik A</CardTitle>
+                    <CardTitle className="text-3xl text-foreground font-light">Education</CardTitle>
                   </CardHeader>
+                  <CardContent>
+                    <div>
+                      <div className="flex flex-row justify-between items-center">
+                        <span className="font-semibold text-2xl">PES University</span>
+                        <span className="text-foreground text-md font-light">Aug 2023 - 2027</span>
+                      </div>
+                      <div className="text-md mt-4 text-foreground font-light">• Bachelor of Technology in Computer Science and Engineering</div>
+                      <div className="text-md mt-2 text-foreground font-light">• CGPA - 9.04</div>
+                    </div>
+                  </CardContent>
                 </Card>
               </AnimatedBox>
 
