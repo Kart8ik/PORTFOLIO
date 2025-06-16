@@ -32,7 +32,10 @@ const First = () => {
   const textOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
   const imageFlexBasis = useTransform(scrollYProgress, animationRange, ["35%", "100%"]);
   const textFlexBasis = useTransform(scrollYProgress, animationRange, ["65%", "0%"]);
+  const firstTextFlexBasisSmall = useTransform(scrollYProgress, animationRange, ["50%", "0%"]);
+  const imageFlexBasisSmall = useTransform(scrollYProgress, animationRange, ["50%", "0%"]);
   const imageSize = useTransform(scrollYProgress, animationRange, [208, 127]);
+  const imageSizeSmall = useTransform(scrollYProgress, animationRange, [160, 61]);
   const padding = useTransform(scrollYProgress, animationRange, [28, 0]);
   
   // Animate width and height for non-distorting borders
@@ -73,15 +76,23 @@ const First = () => {
               {/* Vertical Box on Far Right */}
               <AnimatedBox
                 from="top-right"
-                className="box3 col-start-6 col-end-9 row-start-1 row-end-3 sm:col-start-14 sm:col-end-15 sm:row-start-1 sm:row-end-4 z-20"
+                className="box3 flex flex-col items-center justify-center col-start-6 col-end-9 row-start-1 row-end-3 sm:col-start-14 sm:col-end-15 sm:row-start-1 sm:row-end-4 z-20"
                 scrollYProgress={scrollYProgress}
               >
                 <Card className="w-full h-full px-0 py-0">
-                    <div className="flex flex-col w-full h-full items-center justify-between py-4">
-                      <img src={github} alt="GitHub" className="w-13 h-13" />
-                      <img src={linkedin} alt="LinkedIn" className="w-13 h-13" />
-                      <img src={instagram} alt="Instagram" className="w-13 h-13" />
-                      <img src={leetcode} alt="LeetCode" className="w-13 h-13" />
+                    <div className="flex flex-col w-full h-full items-center justify-between">
+                      <a href="https://github.com/kart8ik" target="_blank" rel="noopener noreferrer">
+                        <img src={github} alt="GitHub" className="w-13 h-13"/>
+                      </a>
+                      <a href="https://www.linkedin.com/in/a--shri--karthik/" target="_blank" rel="noopener noreferrer">
+                        <img src={linkedin} alt="LinkedIn" className="w-13 h-13"/>
+                      </a>
+                      <a href="https://www.instagram.com/krthk200518/" target="_blank" rel="noopener noreferrer">
+                        <img src={instagram} alt="Instagram" className="w-13 h-13"/>
+                      </a>
+                      <a href="https://leetcode.com/u/krthk200518/" target="_blank" rel="noopener noreferrer">
+                        <img src={leetcode} alt="LeetCode" className="w-13 h-13"/>
+                      </a>
                     </div>
                 </Card>
               </AnimatedBox>
@@ -102,7 +113,7 @@ const First = () => {
               {/* Middle Box with absolute centering */}
               <div className="box5-container col-start-4 col-end-6 row-start-7 row-end-9 sm:col-start-7 sm:col-end-9 sm:row-start-4 sm:row-end-6 relative">
                 <motion.div
-                  className="box5 absolute top-1/2 left-1/2 z-10 bg-card/50 backdrop-blur-sm border-3 rounded-md w-full h-full flex flex-row overflow-hidden"
+                  className="box5 absolute top-1/2 left-1/2 z-10 bg-card/50 backdrop-blur-sm border-3 border-glow glow-border rounded-md w-full h-full flex flex-col sm:flex-row  overflow-hidden"
                   style={{
                     width,
                     height,
@@ -111,15 +122,28 @@ const First = () => {
                     padding,
                   }}
                 >
-                    <motion.div className="flex flex-col" style={{ opacity: textOpacity, flexBasis: textFlexBasis, flexShrink: 0, overflow: 'hidden' }}>
-                      <div className="text-4xl font-semibold">Shri Karthik A</div>
-                      <div className="text-lg mt-2 font-light">Full Stack Developer</div>
-                      <div className="text-lg font-light">CS Student</div>
-                      <div className="text-2xl text-card-foreground font-light mt-auto">Bengaluru, India</div>
+                    {isSmallScreen && <motion.div className="flex flex-col" style={{ opacity: textOpacity, flexBasis: textFlexBasis, flexShrink: 0, overflow: 'hidden' }}>
+                      <div className="text-4xl font-semibold text-glow glow-foreground">Shri Karthik A</div>
+                      <div className="text-lg mt-2 font-light text-glow glow-foreground">Full Stack Developer</div>
+                      <div className="text-lg font-light text-glow glow-foreground">CS Student</div>
+                      <div className="text-2xl text-card-foreground text-glow glow-card-foreground font-light mt-auto">Bengaluru, India</div>
                     </motion.div>
-                    <motion.div className="flex items-center justify-center" style={{ flexBasis: imageFlexBasis, flexShrink: 0 }}>
-                      <motion.img src={profile} alt="Profile" style={{ width: imageSize, height: imageSize }} className="rounded-md" />
+                    }
+                    {!isSmallScreen && <motion.div className="flex flex-col" style={{ opacity: textOpacity, flexBasis: firstTextFlexBasisSmall, flexShrink: 0, overflow: 'hidden' }}>
+                      <div className="text-2xl font-semibold text-glow glow-foreground">Shri Karthik A</div>
+                      <div className="text-sm mt-2 font-light text-glow glow-foreground">Full Stack Developer</div>
+                      <div className="text-sm font-light text-glow glow-foreground">CS Student</div>
+                      <div className="text-lg text-card-foreground text-glow glow-card-foreground font-light mt-3">Bengaluru, India</div>
                     </motion.div>
+                    }
+                    {isSmallScreen && <motion.div className="flex items-center justify-center" style={{ flexBasis: imageFlexBasis, flexShrink: 0 }}>
+                      <motion.img src={profile} alt="Profile" style={{ width: imageSize, height: imageSize, filter: 'drop-shadow(0 0 5px rgba(42, 49, 85, 1))' }} className="rounded-md" />
+                    </motion.div>
+                    }
+                    {!isSmallScreen && <motion.div className="flex items-center justify-end" style={{ flexBasis: imageFlexBasisSmall, flexShrink: 0 }}>
+                      <motion.img src={profile} alt="Profile" style={{ width: imageSizeSmall, height: imageSizeSmall, filter: 'drop-shadow(0 0 5px rgba(42, 49, 85, 1))' }} className="rounded-md" />
+                    </motion.div>
+                    }
                 </motion.div>
               </div>
 
@@ -131,16 +155,16 @@ const First = () => {
               >
                 <Card className="w-full h-full">
                   <CardHeader>
-                    <CardTitle className="text-3xl text-foreground font-light">Education</CardTitle>
+                    <CardTitle className="text-xl sm:text-3xl text-foreground sm:text-foreground text-glow glow-foreground font-medium">Education</CardTitle>
                   </CardHeader>
                   <CardContent>
-                    <div>
-                      <div className="flex flex-row justify-between items-center">
-                        <span className="font-semibold text-2xl">PES University</span>
-                        <span className="text-foreground text-md font-light">Aug 2023 - 2027</span>
+                    <div className="flex flex-col justify-center">
+                      <div className="flex flex-row justify-between items-center flex-wrap sm:flex-nowrap">
+                        <span className="font-semibold text-glow glow-card-foreground text-sm sm:text-2xl">PES University</span>
+                        <span className="text-foreground text-glow glow-foreground text-xs sm:text-md font-light">Aug 2023 - 2027</span>
                       </div>
-                      <div className="text-md mt-4 text-foreground font-light">• Bachelor of Technology in Computer Science and Engineering</div>
-                      <div className="text-md mt-2 text-foreground font-light">• CGPA - 9.04</div>
+                      <div className="text-xs sm:text-sm mt-4 text-foreground text-glow glow-foreground font-light">• Bachelor of Technology in Computer Science and Engineering</div> 
+                      <div className="text-xs sm:text-sm mt-2 text-foreground text-glow glow-foreground font-light">• CGPA - 9.04</div>
                     </div>
                   </CardContent>
                 </Card>
