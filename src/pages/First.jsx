@@ -7,6 +7,39 @@ import github from '@/assets/github.png'
 import linkedin from '@/assets/linkedin.png'
 import instagram from '@/assets/instagram.png'
 import leetcode from '@/assets/leetcode.png'
+import SkillBadge from '@/components/SkillBadge'
+import ProjectBox from '@/components/ProjectBox'
+import { Button } from '@/components/ui/button'
+import { Link } from 'react-router-dom'
+import { ArrowRightIcon } from 'lucide-react'
+
+const skills ={
+    'Programming Languages': ['python', 'cpp', 'javascript'],
+    'Machine Learning': ['numpy', 'pandas', 'pytorch', 'tensorflow'],
+    'Frontend': ['html', 'css','react', 'nextjs','electron', 'tailwind', 'shadcn', 'framer','redux'],
+    'Backend': ['nodejs', 'express', 'fastapi', 'flask','firebase'],
+    'Database': ['mongodb', 'mysql'],
+    'Tools/Platforms': ['git', 'figma','androidstudio']
+}
+
+const projects = [
+    {
+        name: 'CalPal',
+        description: 'Collaborative Task Management App',
+        stack: ['react','express', 'nodejs', 'mongodb','tailwind','shadcn']
+    },
+    {
+        name: 'P2P-Echovoid',
+        description: 'Peer to Peer LAN Chat Application',
+        stack: ['electron', 'javascript', 'nodejs'],
+    },
+    {
+        name: 'Loopy-tune',
+        description: 'Create your own Background Music',
+        stack: ['python', 'fastapi', 'react', 'tailwind','shadcn'],
+    }
+]
+
 
 const First = () => {
   const scrollRef = useRef(null)
@@ -53,10 +86,23 @@ const First = () => {
                 className="box1 col-start-1 col-end-6 row-start-1 row-end-7 sm:col-start-1 sm:col-end-7 sm:row-start-1 sm:row-end-6 z-20"
                 scrollYProgress={scrollYProgress}
               >
-                <Card className="w-full h-full">
+                <Card className="w-full h-full sm:gap-2">
                   <CardHeader>
-                    <CardTitle>Shri Karthik A</CardTitle>
+                    <CardTitle className="text-3xl text-foreground sm:text-foreground text-glow glow-foreground font-medium ">Projects</CardTitle>
                   </CardHeader>
+                  <CardContent className="overflow-hidden flex flex-col gap-2">
+                    {projects.map((project) => (
+                      <ProjectBox key={project.name} {...project} />
+                    ))}
+                  </CardContent>
+                  <CardFooter className="flex justify-end">
+                    <Button variant="outline" className="text-card-foreground text-glow glow-card-foreground">
+                        <Link to="/projects" className="flex items-center">
+                            View All Projects
+                            <ArrowRightIcon className="w-4 h-4 ml-2 text-glow glow-foreground" />
+                        </Link>
+                    </Button>
+                  </CardFooter>
                 </Card>
               </AnimatedBox>
 
@@ -66,10 +112,34 @@ const First = () => {
                 className="box2 col-start-6 col-end-9 row-start-3 row-end-9 sm:col-start-7 sm:col-end-14 sm:row-start-1 sm:row-end-4 z-20"
                 scrollYProgress={scrollYProgress}
                 >
-                  <Card className="w-full h-full">
-                  <CardHeader>
-                    <CardTitle>Shri Karthik A</CardTitle>
-                  </CardHeader>
+                  <Card className="w-full h-full gap-2">
+                    <CardHeader>
+                        <CardTitle className="text-xl sm:text-3xl text-foreground sm:text-foreground text-glow glow-foreground font-medium ">Skills</CardTitle>
+                    </CardHeader>
+                    <CardContent className="overflow-hidden">
+                        {
+                            Object.keys(skills).map((key) =>  {
+                                return (
+                                    <div key={key} className="flex flex-row mb-4">
+                                        <h3 className="text-lg font-semibold text-glow glow-card-foreground mr-2">{key}:</h3>
+                                        <div className="flex gap-2 overflow-hidden">
+                                            {skills[key].map((skill) => (
+                                                <SkillBadge key={skill} skill={skill} />
+                                            ))}
+                                        </div>
+                                    </div>
+                                )
+                            })
+                        }
+                    </CardContent>
+                    <CardFooter className="flex justify-end ">
+                        <Button variant="outline" className="text-card-foreground text-glow glow-card-foreground">
+                            <Link to="/skills" className="flex items-center">
+                                View All Skills
+                                <ArrowRightIcon className="w-4 h-4 ml-2 text-glow glow-foreground" />
+                            </Link>
+                        </Button>
+                    </CardFooter>
                 </Card>
               </AnimatedBox>
 

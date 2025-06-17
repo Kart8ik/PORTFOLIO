@@ -62,6 +62,7 @@
   --foreground-glow: oklch(0.8853 0 0 / 0.5);
   --card: oklch(0.1895 0.0368 275.1612);
   --card-foreground: oklch(0.6079 0.2228 7.1441);
+  --card-foreground-glow: oklch(0.6079 0.2228 7.1441 / 0.5);
   --popover: oklch(0.2435 0 0);
   --popover-foreground: oklch(0.8853 0 0);
   --primary: oklch(0.6198 0.2478 10.4098);
@@ -108,8 +109,10 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-foreground-glow: var(--foreground-glow);
   --color-card: var(--card);
   --color-card-foreground: var(--card-foreground);
+  --color-card-foreground-glow: var(--card-foreground-glow);
   --color-popover: var(--popover);
   --color-popover-foreground: var(--popover-foreground);
   --color-primary: var(--primary);
@@ -123,6 +126,7 @@
   --color-destructive: var(--destructive);
   --color-destructive-foreground: var(--destructive-foreground);
   --color-border: var(--border);
+  --color-border-glow: var(--border-glow);
   --color-input: var(--input);
   --color-ring: var(--ring);
   --color-chart-1: var(--chart-1);
