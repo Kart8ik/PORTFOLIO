@@ -77,10 +77,6 @@ export const skills = {
     name: 'React',
     icon: react,
   },
-  express: {
-    name: 'Express',
-    icon: express,
-  },
   nodejs: {
     name: 'NodeJS',
     icon: nodejs,
@@ -96,10 +92,6 @@ export const skills = {
   javascript: {
     name: 'JavaScript',
     icon: javascript,
-  },
-  css: {
-    name: 'CSS',
-    icon: css,
   },
   python: {
     name: 'Python',
@@ -141,17 +133,13 @@ export const skills = {
     name: 'TensorFlow',
     icon: tensorflow,
   },
-  cpp: {
-    name: 'C++',
-    icon: cpp,
-  }
 }
 
 const SkillBadge = ({ skill }) => {
   return (
     <Badge
       variant="default"
-      className="text-foreground sm:text-foreground text-glow glow-foreground font-regular bg-accent p-1"
+      className="text-foreground sm:text-foreground text-glow glow-foreground font-normal bg-accent p-1 flex-shrink-0"
     >
       <img src={skills[skill].icon} alt={skills[skill].name} className="w-4 h-4 mr-1" />
       {skills[skill].name}

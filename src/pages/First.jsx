@@ -12,6 +12,7 @@ import ProjectBox from '@/components/ProjectBox'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
 import { ArrowRightIcon } from 'lucide-react'
+import ExperienceBox from '@/components/ExperienceBox'
 
 const skills ={
     'Programming Languages': ['python', 'cpp', 'javascript'],
@@ -40,6 +41,20 @@ const projects = [
     }
 ]
 
+const experience = [
+    {
+        company: 'PES University',
+        position: 'Frontend Developer',
+        duration: 'March 2025 - March 2025',
+        description: 'Worked on adding new features to the existing University placement dashboard, added features to make the dashboard more customizable with abilities to move ranges and filter through features',
+    },
+    {
+        company: 'PES University',
+        position: 'Graphics Designer',
+        duration: 'March 2025 - March 2025',
+        description: 'Made posters and certificates for two workshops conducted by PES University regarding AWS and Smart Contracts in Ethereum',
+    },
+]
 
 const First = () => {
   const scrollRef = useRef(null)
@@ -90,9 +105,9 @@ const First = () => {
                   <CardHeader>
                     <CardTitle className="text-3xl text-foreground sm:text-foreground text-glow glow-foreground font-medium ">Projects</CardTitle>
                   </CardHeader>
-                  <CardContent className="overflow-hidden flex flex-col gap-2">
+                  <CardContent className="overflow-hidden flex flex-col gap-2 overflow-fade-v">
                     {projects.map((project) => (
-                      <ProjectBox key={project.name} {...project} />
+                      <ProjectBox key={project.name} {...project}/>
                     ))}
                   </CardContent>
                   <CardFooter className="flex justify-end">
@@ -116,11 +131,11 @@ const First = () => {
                     <CardHeader>
                         <CardTitle className="text-xl sm:text-3xl text-foreground sm:text-foreground text-glow glow-foreground font-medium ">Skills</CardTitle>
                     </CardHeader>
-                    <CardContent className="overflow-hidden">
+                    <CardContent className="overflow-hidden overflow-fade-v">
                         {
                             Object.keys(skills).map((key) =>  {
                                 return (
-                                    <div key={key} className="flex flex-row mb-4">
+                                    <div key={key} className="flex flex-row mb-4 overflow-hidden overflow-fade-h">
                                         <h3 className="text-lg font-semibold text-glow glow-card-foreground mr-2">{key}:</h3>
                                         <div className="flex gap-2 overflow-hidden">
                                             {skills[key].map((skill) => (
@@ -152,16 +167,16 @@ const First = () => {
                 <Card className="w-full h-full px-0 py-0">
                     <div className="flex flex-col w-full h-full items-center justify-between">
                       <a href="https://github.com/kart8ik" target="_blank" rel="noopener noreferrer">
-                        <img src={github} alt="GitHub" className="w-13 h-13"/>
+                        <img src={github} alt="GitHub" className="w-13 h-13 img-glow glow-foreground"/>
                       </a>
                       <a href="https://www.linkedin.com/in/a--shri--karthik/" target="_blank" rel="noopener noreferrer">
-                        <img src={linkedin} alt="LinkedIn" className="w-13 h-13"/>
+                        <img src={linkedin} alt="LinkedIn" className="w-13 h-13 img-glow glow-foreground"/>
                       </a>
                       <a href="https://www.instagram.com/krthk200518/" target="_blank" rel="noopener noreferrer">
-                        <img src={instagram} alt="Instagram" className="w-13 h-13"/>
+                        <img src={instagram} alt="Instagram" className="w-13 h-13 img-glow glow-foreground"/>
                       </a>
                       <a href="https://leetcode.com/u/krthk200518/" target="_blank" rel="noopener noreferrer">
-                        <img src={leetcode} alt="LeetCode" className="w-13 h-13"/>
+                        <img src={leetcode} alt="LeetCode" className="w-13 h-13 img-glow glow-foreground"/>
                       </a>
                     </div>
                 </Card>
@@ -175,8 +190,25 @@ const First = () => {
               >
                 <Card className="w-full h-full">
                   <CardHeader>
-                    <CardTitle>Shri Karthik A</CardTitle>
+                    <CardTitle className="text-2xl text-foreground sm:text-foreground text-glow glow-foreground font-medium">Blogs & Gallery</CardTitle>
+                    <CardDescription className="mt-2 text-xs text-glow glow-card-foreground font-light">I write blogs about my projects and learnings and use art to bring my ideas to life</CardDescription>
                   </CardHeader>
+                  <CardContent>
+                    <div className="flex flex-col gap-2">
+                                <Button variant="outline" className="text-card-foreground text-glow glow-card-foreground">
+                                    <Link to="/blogs" className="flex items-center">
+                                        View Blogs
+                                        <ArrowRightIcon className="w-4 h-4 ml-2 text-glow glow-foreground" />
+                                    </Link>
+                                </Button>
+                                <Button variant="outline" className="text-card-foreground text-glow glow-card-foreground">
+                                    <Link to="/gallery" className="flex items-center">
+                                        View Gallery
+                                        <ArrowRightIcon className="w-4 h-4 ml-2 text-glow glow-foreground" />
+                                    </Link>
+                                </Button>
+                    </div>
+                  </CardContent>
                 </Card>
               </AnimatedBox>
 
@@ -248,8 +280,21 @@ const First = () => {
               >
                 <Card className="w-full h-full">
                   <CardHeader>
-                    <CardTitle>Shri Karthik A</CardTitle>
+                    <CardTitle className="text-3xl text-foreground sm:text-foreground text-glow glow-foreground font-medium">Experience</CardTitle>
                   </CardHeader>
+                  <CardContent className="overflow-hidden flex flex-col gap-2 overflow-fade-v">
+                    {experience.map((experience) => (
+                      <ExperienceBox key={experience.company} {...experience} />
+                    ))}
+                  </CardContent>
+                  <CardFooter className="flex justify-end">
+                    <Button variant="outline" className="text-card-foreground text-glow glow-card-foreground">
+                        <Link to="/experience" className="flex items-center">
+                            View All Experience
+                            <ArrowRightIcon className="w-4 h-4 ml-2 text-glow glow-foreground" />
+                        </Link>
+                    </Button>
+                  </CardFooter>
                 </Card>
               </AnimatedBox>
             </div>
