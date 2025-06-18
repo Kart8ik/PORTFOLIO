@@ -224,7 +224,7 @@ const First = () => {
                     className="box3 flex flex-col items-center justify-center col-start-6 col-end-9 row-start-1 row-end-3 sm:col-start-14 sm:col-end-15 sm:row-start-1 sm:row-end-4 z-20"
                     scrollYProgress={scrollYProgress}
                 >
-                    <Card className="flex w-full h-full flex-wrap">
+                    <Card className="flex w-full h-full flex-wrap py-0">
                         <div className="flex flex-col w-full h-full items-center justify-center sm:justify-between flex-wrap sm:flex-nowrap  gap-4 sm:gap-0">
                         <a href="https://github.com/kart8ik" target="_blank" rel="noopener noreferrer">
                             <img src={github} alt="GitHub" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground"/>
