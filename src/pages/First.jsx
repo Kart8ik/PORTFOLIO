@@ -112,6 +112,7 @@ const First = () => {
         variants={pageVariants}
         transition={pageTransition}
         style={{ backdropFilter: backdropBlur }}
+        className="w-screen h-screen overflow-hidden relative"
     >
         <div className="w-screen h-screen overflow-hidden relative">
         <div ref={scrollRef} className="w-full h-full overflow-y-scroll overflow-x-hidden no-scrollbar">
@@ -130,7 +131,7 @@ const First = () => {
                     </CardHeader>
                     {isSmallScreen ? (
                         <>
-                        <CardContent className="overflow-hidden flex flex-col gap-2 overflow-fade-v">
+                        <CardContent className="overflow-hidden flex flex-col h-full gap-2 overflow-fade-v">
                         {projects.map((project) => (
                         <ProjectBoxBasic key={project.name} {...project}/>
                         ))}
@@ -253,8 +254,7 @@ const First = () => {
                         <CardTitle className="text-2xl apply-glow glow-foreground font-medium">Blogs & Gallery</CardTitle>
                         {isSmallScreen && <CardDescription className="mt-2 text-xs apply-glow glow-card-foreground font-light">I write blogs about my projects and learnings and use art to bring my ideas to life</CardDescription>}
                     </CardHeader>
-                    {isSmallScreen ? (<CardContent>
-                        <div className="flex flex-col gap-2 w-full">
+                    {isSmallScreen ? (<CardContent className="flex flex-col h-full items-end justify-end gap-2 w-full">
                                     <Link to="/blogs" className="flex items-center w-full" onClick={() => {
                                         if (scrollRef.current) {
                                             sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
@@ -275,7 +275,6 @@ const First = () => {
                                             <ArrowRightIcon className="w-4 h-4 ml-2 apply-glow glow-foreground" />
                                         </Button>
                                     </Link>
-                        </div>
                     </CardContent>) : (
                       <Link to="/blogs" className="flex w-full h-full" onClick={() => {
                         if (scrollRef.current) {
@@ -381,7 +380,7 @@ const First = () => {
                         </CardHeader>
                         {isSmallScreen ? (
                         <>
-                        <CardContent className="overflow-hidden flex flex-col gap-2 overflow-fade-v">
+                        <CardContent className="overflow-hidden flex flex-col h-full gap-2 overflow-fade-v">
                         {experience.map((experience) => (
                             <ExperienceBoxBasic key={experience.company} {...experience} />
                         ))}
