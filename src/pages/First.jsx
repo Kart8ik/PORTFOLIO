@@ -111,7 +111,7 @@ const First = () => {
         variants={pageVariants}
         transition={pageTransition}
         style={{ backdropFilter: backdropBlur }}
-        className="w-screen h-[100svh] overflow-x-hidden relative"
+        className="w-screen h-[100svh] relative"
     >
         <div ref={scrollRef} className="w-full h-full overflow-y-scroll overflow-x-hidden no-scrollbar">
             <div className="h-[200vh] relative">
