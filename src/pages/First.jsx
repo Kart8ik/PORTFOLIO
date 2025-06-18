@@ -101,7 +101,6 @@ const First = () => {
   const blurValue2 = useTransform(scrollYProgress, animationRange, [4, 0]);
   const backdropBlur = useMotionTemplate`blur(${blurValue}px)`;
   const backdropBlur2 = useMotionTemplate`blur(${blurValue2}px)`;
-  // Animate width and height for non-distorting borders
   const width = useTransform(scrollYProgress, animationRange, isSmallScreen ? ['470%', '100%'] : ['500%', '100%'])
   const height = useTransform(scrollYProgress, animationRange, isSmallScreen ? ['200%', '100%'] : ['600%', '100%'])
   return (
@@ -112,7 +111,7 @@ const First = () => {
         variants={pageVariants}
         transition={pageTransition}
         style={{ backdropFilter: backdropBlur }}
-        className="w-screen h-[100dvh] overflow-hidden relative"
+        className="w-screen h-screen-dynamic overflow-hidden relative"
     >
         <div ref={scrollRef} className="w-full h-full overflow-y-scroll overflow-x-hidden no-scrollbar">
             <div className="h-[200vh] relative">
