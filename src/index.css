@@ -176,7 +176,7 @@
 @tailwind utilities;
 
 @layer utilities {
-  .text-glow {
+  .apply-glow {
     text-shadow:
       0 0 5px var(--glow-color),
       0 0 10px var(--glow-color);
@@ -213,7 +213,7 @@
   }
 
   .img-glow:hover {
-    filter: drop-shadow(0 0 15px var(--glow-color));
+    filter: drop-shadow(0 0 30px var(--glow-color));
   }
 
   .overflow-fade-h {

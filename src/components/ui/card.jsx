@@ -10,7 +10,7 @@ function Card({
     <div
       data-slot="card"
       className={cn(
-        "bg-card/40 backdrop-blur-sm text-card-foreground flex flex-col gap-6 rounded-md border border-3 border-glow glow-border py-3 sm:py-6 shadow-sm",
+        "bg-card/40 text-card-foreground flex flex-col gap-6 rounded-md border border-3 border-glow glow-border py-3 sm:py-6 shadow-sm",
         className
       )}
       {...props} />
@@ -39,7 +39,7 @@ function CardTitle({
   return (
     <div
       data-slot="card-title"
-      className={cn("leading-none font-semibold text-glow glow-foreground", className)}
+      className={cn("text-foreground text-2xl apply-glow glow-foreground", className)}
       {...props} />
   );
 }
@@ -51,7 +51,7 @@ function CardDescription({
   return (
     <div
       data-slot="card-description"
-      className={cn("text-card-foreground text-sm text-glow glow-card-foreground", className)}
+      className={cn("text-card-foreground text-sm apply-glow glow-card-foreground", className)}
       {...props} />
   );
 }

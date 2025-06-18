@@ -138,11 +138,14 @@ export const skills = {
 const SkillBadge = ({ skill }) => {
   return (
     <Badge
-      variant="default"
-      className="text-foreground sm:text-foreground text-glow glow-foreground font-normal bg-accent p-1 flex-shrink-0"
+      key={skill}
+      variant="outline"
+      className="text-foreground sm:text-foreground apply-glow glow-foreground font-normal bg-accent p-1 flex-shrink-0"
     >
-      <img src={skills[skill].icon} alt={skills[skill].name} className="w-4 h-4 mr-1" />
-      {skills[skill].name}
+      <div className="flex items-center">
+        <img src={skills[skill].icon} alt={skills[skill].name} className="w-4 h-4 mr-2" />
+        {skills[skill].name}
+      </div>
     </Badge>
   )
 }
