@@ -112,9 +112,8 @@ const First = () => {
         variants={pageVariants}
         transition={pageTransition}
         style={{ backdropFilter: backdropBlur }}
-        className="w-screen h-screen overflow-hidden relative"
+        className="w-screen h-[100dvh] overflow-hidden relative"
     >
-        <div className="w-screen h-screen overflow-hidden relative">
         <div ref={scrollRef} className="w-full h-full overflow-y-scroll overflow-x-hidden no-scrollbar">
             <div className="h-[200vh] relative">
             <div className="w-full h-screen flex items-center justify-center sticky top-0">
@@ -414,7 +413,6 @@ const First = () => {
                 </div>
             </div>
             </div>
-        </div>
         </div>
     </motion.div>
   )
