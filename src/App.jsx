@@ -10,10 +10,8 @@ import Gallery from './pages/Gallery';
 import Blogs from './pages/Blogs';
 import DesktopPrompt from './components/DesktopPrompt';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
-import useScreenHeight from './hooks/useScreenHeight';
 
 function App() {
-  useScreenHeight();
   const location = useLocation();
   return (
     <>

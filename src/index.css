@@ -176,11 +176,6 @@
 @tailwind utilities;
 
 @layer utilities {
-  .h-screen-dynamic {
-    height: 100vh; /* Fallback for browsers that do not support CSS variables */
-    height: calc(var(--vh, 1vh) * 100);
-  }
-
   .apply-glow {
     text-shadow:
       0 0 5px var(--glow-color),
