@@ -1,7 +1,7 @@
 import { AnimatePresence } from 'framer-motion';
 import ParticlesBackground from './components/ParticlesBackground';
 import './App.css';
-import First from './pages/first';
+import First from './pages/First';
 import Skills from './pages/Skills';
 import Experience from './pages/Experience';
 import Education from './pages/Education';
