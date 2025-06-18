@@ -1,11 +1,9 @@
-import React from 'react'
-import { motion } from 'framer-motion'
-import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card'
-import { Button } from '@/components/ui/button'
-import { Link } from 'react-router-dom'
-import { ArrowLeftIcon } from 'lucide-react'
-import { ProjectBoxComplex } from '@/components/ProjectBox'
-import { projects } from '@/data/ProjectsData'
+import React from 'react';
+import { Card, CardHeader, CardTitle, CardContent } from '@/components/ui/card';
+import { motion } from 'framer-motion';
+import { Link } from 'react-router-dom';
+import { ArrowLeftIcon } from 'lucide-react';
+import { Button } from '@/components/ui/button';
 
 const pageVariants = {
     initial: {
@@ -28,20 +26,20 @@ const pageTransition = {
     duration: 1,
 };
 
-const Projects = () => {
-  return (
-    <motion.div
+const Gallery = () => {
+    return (
+        <motion.div
             initial="initial"
             animate="in"
             exit="out"
             variants={pageVariants}
             transition={pageTransition}
-            className="w-auto h-auto flex items-center justify-center backdrop-blur-sm "
+            className="w-screen h-screen flex items-center justify-center backdrop-blur-sm"
         >
             <Card className="w-full h-full bg-card/50 border-0 rounded-none flex flex-col">
                 <CardHeader>
                     <div className="flex items-center justify-between">
-                        <CardTitle className="text-3xl text-foreground apply-glow glow-foreground font-medium">Projects</CardTitle>
+                        <CardTitle className="text-3xl apply-glow glow-foreground font-medium">Gallery</CardTitle>
                         <Button asChild variant="outline">
                             <Link to="/">
                                 <ArrowLeftIcon className="w-4 h-4 mr-2" />
@@ -50,16 +48,17 @@ const Projects = () => {
                         </Button>
                     </div>
                 </CardHeader>
-                <CardContent className="flex flex-col items-center justify-center w-full">
-                    <div className="w-full flex flex-col items-center justify-center sm:w-1/2 gap-4">
-                        {projects.map((exp, index) => (
-                            <ProjectBoxComplex key={index} {...exp} />
-                        ))}
+                <CardContent className="flex flex-col items-center justify-center w-full h-full">
+                    <div className="text-4xl text-foreground apply-glow glow-foreground font-semibold">
+                        Coming Soon!
+                    </div>
+                    <div className="text-lg text-muted-foreground apply-glow glow-muted-foreground font-light mt-4">
+                        This page is under construction. Please check back later.
                     </div>
                 </CardContent>
             </Card>
         </motion.div>
-  )
-}
+    );
+};
 
-export default Projects
+export default Gallery;

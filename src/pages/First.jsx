@@ -129,12 +129,16 @@ const First = () => {
                         ))}
                     </CardContent>
                     <CardFooter className="flex justify-end">
-                        <Button variant="outline" className="text-card-foreground apply-glow glow-card-foreground">
-                            <Link to="/projects" className="flex items-center">
+                        <Link to="/projects" className="flex items-center" onClick={() => {
+                            if (scrollRef.current) {
+                                sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
+                            }
+                        }}>
+                            <Button variant="outline" className="text-card-foreground apply-glow glow-card-foreground">
                                 View All 
                                 <ArrowRightIcon className="w-4 h-4 ml-2 apply-glow glow-foreground" />
-                            </Link>
-                        </Button>
+                            </Button>
+                        </Link>
                     </CardFooter>
                     </Card>
                 </AnimatedBox>
@@ -166,16 +170,16 @@ const First = () => {
                             }
                         </CardContent>
                         <CardFooter className="flex justify-end ">
+                            <Link to="/skills" className="flex items-center" onClick={() => {
+                                if (scrollRef.current) {
+                                    sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
+                                }
+                            }}>
                             <Button variant="outline" className="text-card-foreground apply-glow glow-card-foreground">
-                                <Link to="/skills" className="flex items-center" onClick={() => {
-                                    if (scrollRef.current) {
-                                        sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
-                                    }
-                                }}>
                                     View All
-                                    <ArrowRightIcon className="w-4 h-4 ml-2 apply-glow glow-foreground" />
-                                </Link>
+                                    <ArrowRightIcon className="w-4 h-4 ml-2 apply-glow glow-foreground" />                          
                             </Button>
+                            </Link>
                         </CardFooter>
                     </Card>
                 </AnimatedBox>
@@ -216,19 +220,27 @@ const First = () => {
                         <CardDescription className="mt-2 text-xs apply-glow glow-card-foreground font-light">I write blogs about my projects and learnings and use art to bring my ideas to life</CardDescription>
                     </CardHeader>
                     <CardContent>
-                        <div className="flex flex-col gap-2">
-                                    <Button variant="outline" className="text-card-foreground apply-glow glow-card-foreground">
-                                        <Link to="/blogs" className="flex items-center">
+                        <div className="flex flex-col gap-2 w-full">
+                                    <Link to="/blogs" className="flex items-center w-full" onClick={() => {
+                                        if (scrollRef.current) {
+                                            sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
+                                        }
+                                    }}>
+                                    <Button variant="outline" className="text-card-foreground apply-glow glow-card-foreground w-full">
                                             View Blogs
                                             <ArrowRightIcon className="w-4 h-4 ml-2 apply-glow glow-foreground" />
-                                        </Link>
                                     </Button>
-                                    <Button variant="outline" className="text-card-foreground apply-glow glow-card-foreground">
-                                        <Link to="/gallery" className="flex items-center">
+                                    </Link>
+                                    <Link to="/gallery" className="flex items-center w-full" onClick={() => {
+                                        if (scrollRef.current) {
+                                            sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
+                                        }
+                                    }}>
+                                        <Button variant="outline" className="text-card-foreground apply-glow glow-card-foreground w-full">
                                             View Gallery
                                             <ArrowRightIcon className="w-4 h-4 ml-2 apply-glow glow-foreground" />
-                                        </Link>
-                                    </Button>
+                                        </Button>
+                                    </Link>
                         </div>
                     </CardContent>
                     </Card>
@@ -317,15 +329,16 @@ const First = () => {
                         ))}
                         </CardContent>
                         <CardFooter className="flex justify-end">
-                            <Button variant="outline" className="text-card-foreground apply-glow glow-card-foreground">
-                                <Link to="/experience" className="flex items-center" onClick={() => {
+                          <Link to="/experience" className="flex items-center" onClick={() => {
                                     if (scrollRef.current) {
                                         sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
                                     }
                                 }}>
+                            <Button variant="outline" className="text-card-foreground apply-glow glow-card-foreground">
                                     View All
-                                </Link>
+                                    <ArrowRightIcon className="w-4 h-4 ml-2 apply-glow glow-foreground" />
                             </Button>
+                          </Link>
                         </CardFooter>
                     </Card>
                 </AnimatedBox>

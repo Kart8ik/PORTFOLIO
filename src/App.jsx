@@ -6,6 +6,8 @@ import Skills from './pages/Skills';
 import Experience from './pages/Experience';
 import Education from './pages/Education';
 import Projects from './pages/Projects';
+import Gallery from './pages/Gallery';
+import Blogs from './pages/Blogs';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
 function App() {
@@ -19,6 +21,8 @@ function App() {
           <Route path="/experience" element={<Experience />} />
           <Route path="/education" element={<Education />} />
           <Route path="/projects" element={<Projects />} />
+          <Route path="/gallery" element={<Gallery />} />
+          <Route path="/blogs" element={<Blogs />} />
         </Routes>
       </AnimatePresence>
     </>
