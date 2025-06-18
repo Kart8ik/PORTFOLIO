@@ -8,12 +8,14 @@ import Education from './pages/Education';
 import Projects from './pages/Projects';
 import Gallery from './pages/Gallery';
 import Blogs from './pages/Blogs';
+import DesktopPrompt from './components/DesktopPrompt';
 import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
 
 function App() {
   const location = useLocation();
   return (
     <>
+      <DesktopPrompt />
       <AnimatePresence mode="wait">
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<First />} />

@@ -53,14 +53,14 @@ const Education = () => {
                         <Card className="w-all h-full">
                             <CardHeader>
                                 <div className="flex flex-row justify-between items-center flex-wrap sm:flex-nowrap">
-                                    <span className="font-semibold apply-glow glow-card-foreground text-sm sm:text-2xl">PES University</span>
-                                    <span className="text-foreground apply-glow glow-foreground text-xs sm:text-md font-light">Aug 2023 - 2027</span>
+                                    <span className="font-semibold apply-glow glow-card-foreground text-2xl">PES University</span>
+                                    <span className="text-foreground apply-glow glow-foreground text-md font-light">Aug 2023 - 2027</span>
                                 </div>
                             </CardHeader>
                             <CardContent>
                                 <div className="flex flex-col justify-center">
-                                    <div className="text-xs sm:text-sm mt-4 text-foreground apply-glow glow-foreground font-light">• Bachelor of Technology in Computer Science and Engineering</div>
-                                    <div className="text-xs sm:text-sm mt-2 text-foreground apply-glow glow-foreground font-light">• CGPA - 9.04</div>
+                                    <div className="text-md mt-4 text-foreground apply-glow glow-foreground font-light">• Bachelor of Technology in Computer Science and Engineering</div>
+                                    <div className="text-md mt-2 text-foreground apply-glow glow-foreground font-light">• CGPA - 9.04</div>
                                 </div>
                             </CardContent>
                         </Card>

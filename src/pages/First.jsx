@@ -5,7 +5,7 @@ import profile from '@/assets/profile.png'
 import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter } from '@/components/ui/card'
 import github from '@/assets/github.png'
 import linkedin from '@/assets/linkedin.png'
-import instagram from '@/assets/instagram.png'
+import resume from '@/assets/resume.png'
 import leetcode from '@/assets/leetcode.png'
 import SkillBadge from '@/components/SkillBadge'
 import {ProjectBoxBasic} from '@/components/ProjectBox'
@@ -15,6 +15,11 @@ import { ArrowRightIcon } from 'lucide-react'
 import { ExperienceBoxBasic } from '@/components/ExperienceBox'
 import { skills } from '@/data/SkillsData'
 import { experience } from '@/data/ExperienceData'
+import projectgif from '@/assets/section-gifs/projecticon.gif'
+import skillgif from '@/assets/section-gifs/skillsicon.gif'
+import educationgif from '@/assets/section-gifs/educationicon.gif'
+import experiencegif from '@/assets/section-gifs/experienceicon.gif'
+import blogsgif from '@/assets/section-gifs/blogsicon.gif'
 
 const projects = [
     {
@@ -123,7 +128,9 @@ const First = () => {
                     <CardHeader>
                         <CardTitle className="text-3xl apply-glow glow-foreground font-medium ">Projects</CardTitle>
                     </CardHeader>
-                    <CardContent className="overflow-hidden flex flex-col gap-2 overflow-fade-v">
+                    {isSmallScreen ? (
+                        <>
+                        <CardContent className="overflow-hidden flex flex-col gap-2 overflow-fade-v">
                         {projects.map((project) => (
                         <ProjectBoxBasic key={project.name} {...project}/>
                         ))}
@@ -140,6 +147,19 @@ const First = () => {
                             </Button>
                         </Link>
                     </CardFooter>
+                    </>
+                    ) : (
+                        <Link to="/projects" className="flex w-full h-full" onClick={() => {
+                            if (scrollRef.current) {
+                                sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
+                            }
+                        }}>
+                            <CardContent className="flex flex-col w-full h-full items-end justify-end">
+                                <img src={projectgif} alt="Projects" className="w-1/2 h-auto" />
+                            </CardContent>
+                        </Link>
+                    )
+                    }
                     </Card>
                 </AnimatedBox>
 
@@ -153,7 +173,9 @@ const First = () => {
                         <CardHeader>
                             <CardTitle className="text-xl sm:text-3xl apply-glow glow-foreground font-medium ">Skills</CardTitle>
                         </CardHeader>
-                        <CardContent className="overflow-hidden overflow-fade-v">
+                        {isSmallScreen ? (
+                          <>
+                          <CardContent className="overflow-hidden overflow-fade-v">
                             {
                                 Object.keys(skills).map((key) =>  {
                                     return (
@@ -181,6 +203,18 @@ const First = () => {
                             </Button>
                             </Link>
                         </CardFooter>
+                        </>
+                        ) : (
+                            <Link to="/skills" className="flex w-full h-full" onClick={() => {
+                                if (scrollRef.current) {
+                                    sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
+                                }
+                            }}>
+                                <CardContent className="flex flex-col w-full h-full items-end justify-end">
+                                    <img src={skillgif} alt="Skills" className="w-2/3 h-auto" />
+                                </CardContent>
+                            </Link>
+                        )}
                     </Card>
                 </AnimatedBox>
 
@@ -190,19 +224,19 @@ const First = () => {
                     className="box3 flex flex-col items-center justify-center col-start-6 col-end-9 row-start-1 row-end-3 sm:col-start-14 sm:col-end-15 sm:row-start-1 sm:row-end-4 z-20"
                     scrollYProgress={scrollYProgress}
                 >
-                    <Card className="w-full h-full px-0 py-0">
-                        <div className="flex flex-col w-full h-full items-center justify-between">
+                    <Card className="flex w-full h-full flex-wrap">
+                        <div className="flex flex-col w-full h-full items-center justify-center sm:justify-between flex-wrap sm:flex-nowrap  gap-4 sm:gap-0">
                         <a href="https://github.com/kart8ik" target="_blank" rel="noopener noreferrer">
-                            <img src={github} alt="GitHub" className="w-13 h-13 img-glow glow-foreground"/>
+                            <img src={github} alt="GitHub" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground"/>
                         </a>
                         <a href="https://www.linkedin.com/in/a--shri--karthik/" target="_blank" rel="noopener noreferrer">
-                            <img src={linkedin} alt="LinkedIn" className="w-13 h-13 img-glow glow-foreground"/>
+                            <img src={linkedin} alt="LinkedIn" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground"/>
                         </a>
-                        <a href="https://www.instagram.com/krthk200518/" target="_blank" rel="noopener noreferrer">
-                            <img src={instagram} alt="Instagram" className="w-13 h-13 img-glow glow-foreground"/>
+                        <a href="/SHRI_KARTHIK_RESUME.pdf" download>
+                            <img src={resume} alt="Resume" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground"/>
                         </a>
                         <a href="https://leetcode.com/u/krthk200518/" target="_blank" rel="noopener noreferrer">
-                            <img src={leetcode} alt="LeetCode" className="w-13 h-13 img-glow glow-foreground"/>
+                            <img src={leetcode} alt="LeetCode" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground"/>
                         </a>
                         </div>
                     </Card>
@@ -217,9 +251,9 @@ const First = () => {
                     <Card className="w-full h-full">
                     <CardHeader>
                         <CardTitle className="text-2xl apply-glow glow-foreground font-medium">Blogs & Gallery</CardTitle>
-                        <CardDescription className="mt-2 text-xs apply-glow glow-card-foreground font-light">I write blogs about my projects and learnings and use art to bring my ideas to life</CardDescription>
+                        {isSmallScreen && <CardDescription className="mt-2 text-xs apply-glow glow-card-foreground font-light">I write blogs about my projects and learnings and use art to bring my ideas to life</CardDescription>}
                     </CardHeader>
-                    <CardContent>
+                    {isSmallScreen ? (<CardContent>
                         <div className="flex flex-col gap-2 w-full">
                                     <Link to="/blogs" className="flex items-center w-full" onClick={() => {
                                         if (scrollRef.current) {
@@ -242,7 +276,18 @@ const First = () => {
                                         </Button>
                                     </Link>
                         </div>
-                    </CardContent>
+                    </CardContent>) : (
+                      <Link to="/blogs" className="flex w-full h-full" onClick={() => {
+                        if (scrollRef.current) {
+                            sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
+                        }
+                    }}>
+                        <CardContent className="flex flex-col w-full h-full items-end justify-end">
+                          
+                            <img src={blogsgif} alt="Blogs" className="w-1/2 h-auto" />
+                        </CardContent>
+                      </Link>
+                    )}
                     </Card>
                 </AnimatedBox>
 
@@ -299,7 +344,7 @@ const First = () => {
                     <CardHeader>
                         <CardTitle className="text-xl sm:text-3xl apply-glow glow-foreground font-medium">Education</CardTitle>
                     </CardHeader>
-                    <CardContent>
+                    {isSmallScreen ? (<CardContent>
                         <div className="flex flex-col justify-center">
                         <div className="flex flex-row justify-between items-center flex-wrap sm:flex-nowrap">
                             <span className="font-semibold apply-glow glow-card-foreground text-sm sm:text-2xl">PES University</span>
@@ -309,6 +354,17 @@ const First = () => {
                         <div className="text-xs sm:text-sm mt-2 text-foreground apply-glow glow-foreground font-light">• CGPA - 9.04</div>
                         </div>
                     </CardContent>
+                    ) : (
+                      <Link to="/education" className="flex w-full h-full" onClick={() => {
+                        if (scrollRef.current) {
+                            sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
+                        }
+                    }}>
+                        <CardContent className="flex flex-col w-full h-full items-end justify-end">
+                            <img src={educationgif} alt="Education" className="w-2/3 h-auto" />
+                        </CardContent>
+                      </Link>
+                    )}
                     </Card>
                 </Link>
                 </AnimatedBox>
@@ -323,6 +379,8 @@ const First = () => {
                         <CardHeader>
                         <CardTitle className="text-3xl apply-glow glow-foreground font-medium">Experience</CardTitle>
                         </CardHeader>
+                        {isSmallScreen ? (
+                        <>
                         <CardContent className="overflow-hidden flex flex-col gap-2 overflow-fade-v">
                         {experience.map((experience) => (
                             <ExperienceBoxBasic key={experience.company} {...experience} />
@@ -340,6 +398,18 @@ const First = () => {
                             </Button>
                           </Link>
                         </CardFooter>
+                        </>
+                        ) : (
+                            <Link to="/experience" className="flex w-full h-full" onClick={() => {
+                                if (scrollRef.current) {
+                                    sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
+                                }
+                            }}>
+                                <CardContent className="flex flex-col w-full h-full items-end justify-end">
+                                    <img src={experiencegif} alt="Experience" className="w-1/2 h-auto" />
+                                </CardContent>
+                            </Link>
+                        )}
                     </Card>
                 </AnimatedBox>
                 </div>
