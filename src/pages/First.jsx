@@ -98,9 +98,6 @@ const First = () => {
   const imageSizeSmall = useTransform(scrollYProgress, animationRange, [160, 61]);
   const padding = useTransform(scrollYProgress, animationRange, [28, 0]);
   const blurValue = useTransform(scrollYProgress, animationRange, [0, 4]);
-  const blurValue2 = useTransform(scrollYProgress, animationRange, [4, 0]);
-  const backdropBlur = useMotionTemplate`blur(${blurValue}px)`;
-  const backdropBlur2 = useMotionTemplate`blur(${blurValue2}px)`;
   const width = useTransform(scrollYProgress, animationRange, isSmallScreen ? ['470%', '100%'] : ['500%', '100%'])
   const height = useTransform(scrollYProgress, animationRange, isSmallScreen ? ['200%', '100%'] : ['600%', '100%'])
   return (
@@ -110,7 +107,6 @@ const First = () => {
         exit="out"
         variants={pageVariants}
         transition={pageTransition}
-        style={{ backdropFilter: backdropBlur }}
         className="w-screen h-[100svh] relative"
     >
         <div ref={scrollRef} className="w-full h-full overflow-y-scroll overflow-x-hidden no-scrollbar">
@@ -289,16 +285,15 @@ const First = () => {
                 </AnimatedBox>
 
                 {/* Middle Box with absolute centering */}
-                <div className="box5-container col-start-4 col-end-6 row-start-7 row-end-9 sm:col-start-7 sm:col-end-9 sm:row-start-4 sm:row-end-6 relative">
+                <div className="box5-container col-start-4 col-end-6 row-start-7 row-end-9 sm:col-start-7 sm:col-end-9 sm:row-start-4 sm:row-end-6 relative z-30">
                     <motion.div
-                    className="box5 absolute top-1/2 left-1/2 z-10 bg-card/50 border-3 border-glow glow-border rounded-md w-full h-full flex flex-col sm:flex-row  overflow-hidden"
+                    className="box5 absolute top-1/2 left-1/2 bg-card/50 backdrop-blur-sm border-3 border-glow glow-border rounded-md w-full h-full flex flex-col sm:flex-row  overflow-hidden"
                     style={{
                         width,
                         height,
                         x: '-50%',
                         y: '-50%',
                         padding,
-                        backdropFilter: 'blur(15px)',
                     }}
                     >
                         {isSmallScreen && <motion.div className="flex flex-col" style={{ opacity: textOpacity, flexBasis: textFlexBasis, flexShrink: 0, overflow: 'hidden' }}>
