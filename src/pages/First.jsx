@@ -11,7 +11,7 @@ import SkillBadge from '@/components/SkillBadge'
 import {ProjectBoxBasic} from '@/components/ProjectBox'
 import { Button } from '@/components/ui/button'
 import { Link } from 'react-router-dom'
-import { ArrowRightIcon } from 'lucide-react'
+import { ArrowDownIcon, ArrowRightIcon } from 'lucide-react'
 import { ExperienceBoxBasic } from '@/components/ExperienceBox'
 import { skills } from '@/data/SkillsData'
 import { experience } from '@/data/ExperienceData'
@@ -326,6 +326,12 @@ const First = () => {
                             }
                         </motion.div>
                     </div>
+                    <motion.div className='absolute top-5/6 left-1/2 -translate-x-1/2 -translate-y-1/2' style={{ opacity: textOpacity }}>
+                        <div className='flex flex-col items-center justify-center gap-2 animate-bounce'>
+                            <h1 className='text-4xl apply-glow glow-foreground'>Scroll</h1>
+                            <ArrowDownIcon className='w-10 h-10 img-glow glow-foreground' style={{ filter: 'drop-shadow(0 0 5px rgb(87, 100, 169))' }}/>
+                        </div>
+                    </motion.div>
 
                     {/* Middle Right Box */}
                     <AnimatedBox
