@@ -125,7 +125,7 @@ const First = () => {
                 >
                     <Card className="w-full h-full sm:gap-2">
                     <CardHeader>
-                        <CardTitle className="text-3xl apply-glow glow-foreground font-medium ">Projects</CardTitle>
+                        <CardTitle className="text-2xl sm:text-3xl apply-glow glow-foreground font-medium ">Projects</CardTitle>
                     </CardHeader>
                     {isSmallScreen ? (
                         <>
@@ -154,7 +154,7 @@ const First = () => {
                             }
                         }}>
                             <CardContent className="flex flex-col w-full h-full items-end justify-end">
-                                <img src={projectgif} alt="Projects" className="w-1/2 h-auto" />
+                                <img src={projectgif} alt="Projects" className="w-1/2 h-auto img-glow glow-foreground" />
                             </CardContent>
                         </Link>
                     )
@@ -210,7 +210,7 @@ const First = () => {
                                 }
                             }}>
                                 <CardContent className="flex flex-col w-full h-full items-end justify-end">
-                                    <img src={skillgif} alt="Skills" className="w-2/3 h-auto" />
+                                    <img src={skillgif} alt="Skills" className="w-2/3 h-auto img-glow glow-foreground" />
                                 </CardContent>
                             </Link>
                         )}
@@ -249,7 +249,7 @@ const First = () => {
                 >
                     <Card className="w-full h-full">
                     <CardHeader>
-                        <CardTitle className="text-2xl apply-glow glow-foreground font-medium">Blogs & Gallery</CardTitle>
+                        <CardTitle className="text-lg sm:text-2xl apply-glow glow-foreground font-medium">Blogs & Gallery</CardTitle>
                         {isSmallScreen && <CardDescription className="mt-2 text-xs apply-glow glow-card-foreground font-light">I write blogs about my projects and learnings and use art to bring my ideas to life</CardDescription>}
                     </CardHeader>
                     {isSmallScreen ? (<CardContent className="flex flex-col h-full items-end justify-end gap-2 w-full">
@@ -281,7 +281,7 @@ const First = () => {
                     }}>
                         <CardContent className="flex flex-col w-full h-full items-end justify-end">
                           
-                            <img src={blogsgif} alt="Blogs" className="w-1/2 h-auto" />
+                            <img src={blogsgif} alt="Blogs" className="w-1/2 h-auto img-glow glow-foreground" />
                         </CardContent>
                       </Link>
                     )}
@@ -298,7 +298,7 @@ const First = () => {
                         x: '-50%',
                         y: '-50%',
                         padding,
-                        backdropFilter: backdropBlur2,
+                        backdropFilter: 'blur(15px)',
                     }}
                     >
                         {isSmallScreen && <motion.div className="flex flex-col" style={{ opacity: textOpacity, flexBasis: textFlexBasis, flexShrink: 0, overflow: 'hidden' }}>
@@ -339,7 +339,7 @@ const First = () => {
                 }}>
                     <Card className="w-all h-full">
                     <CardHeader>
-                        <CardTitle className="text-xl sm:text-3xl apply-glow glow-foreground font-medium">Education</CardTitle>
+                        <CardTitle className="text-lg sm:text-3xl apply-glow glow-foreground font-medium">Education</CardTitle>
                     </CardHeader>
                     {isSmallScreen ? (<CardContent>
                         <div className="flex flex-col justify-center">
@@ -358,7 +358,7 @@ const First = () => {
                         }
                     }}>
                         <CardContent className="flex flex-col w-full h-full items-end justify-end">
-                            <img src={educationgif} alt="Education" className="w-2/3 h-auto" />
+                            <img src={educationgif} alt="Education" className="w-2/3 h-auto img-glow glow-foreground" />
                         </CardContent>
                       </Link>
                     )}
@@ -374,7 +374,7 @@ const First = () => {
                 >
                     <Card className="w-full h-full">
                         <CardHeader>
-                        <CardTitle className="text-3xl apply-glow glow-foreground font-medium">Experience</CardTitle>
+                        <CardTitle className="text-2xl sm:text-3xl apply-glow glow-foreground font-medium">Experience</CardTitle>
                         </CardHeader>
                         {isSmallScreen ? (
                         <>
@@ -403,7 +403,7 @@ const First = () => {
                                 }
                             }}>
                                 <CardContent className="flex flex-col w-full h-full items-end justify-end">
-                                    <img src={experiencegif} alt="Experience" className="w-1/2 h-auto" />
+                                    <img src={experiencegif} alt="Experience" className="w-1/2 h-auto img-glow glow-foreground" />
                                 </CardContent>
                             </Link>
                         )}
