@@ -102,7 +102,7 @@ const First = () => {
   const width = useTransform(scrollYProgress, animationRange, isSmallScreen ? ['470%', '100%'] : ['500%', '100%'])
   const height = useTransform(scrollYProgress, animationRange, isSmallScreen ? ['200%', '100%'] : ['600%', '100%'])
   return (
-    <div className="w-screen h-[100svh] relative">
+    <div className="w-screen h-screen relative">
         <motion.div
             className="absolute inset-0 z-0"
             style={{ backdropFilter: backgroundBlur }}
