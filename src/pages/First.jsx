@@ -6,7 +6,7 @@ import { Card, CardHeader, CardTitle, CardDescription, CardContent, CardFooter }
 import github from '@/assets/github.png'
 import linkedin from '@/assets/linkedin.png'
 import resume from '@/assets/resume.png'
-import leetcode from '@/assets/leetcode.png'
+import email from '@/assets/email.png'
 import SkillBadge from '@/components/SkillBadge'
 import {ProjectBoxBasic} from '@/components/ProjectBox'
 import { Button } from '@/components/ui/button'
@@ -20,26 +20,7 @@ import skillgif from '@/assets/section-gifs/skillsicon.gif'
 import educationgif from '@/assets/section-gifs/educationicon.gif'
 import experiencegif from '@/assets/section-gifs/experienceicon.gif'
 import blogsgif from '@/assets/section-gifs/blogsicon.gif'
-
-const projects = [
-    {
-        name: 'CalPal',
-        description: 'Collaborative Task Management App',
-        stack: ['react','express', 'nodejs', 'mongodb','tailwind','shadcn'],
-        github: 'https://github.com/Kart8ik/CALPAL_2.0',
-        link: 'https://calpal-beige.vercel.app/'
-    },
-    {
-        name: 'P2P-Echovoid',
-        description: 'Peer to Peer LAN Chat Application',
-        stack: ['electron', 'javascript', 'nodejs'],
-    },
-    {
-        name: 'Loopy-tune',
-        description: 'Create your own Background Music',
-        stack: ['python', 'fastapi', 'react', 'tailwind','shadcn'],
-    }
-]
+import { projects } from '@/data/ProjectsData'
 
 const pageVariants = {
     initial: {
@@ -236,8 +217,8 @@ const First = () => {
                             <a href="/SHRI_KARTHIK_RESUME.pdf" download>
                                 <img src={resume} alt="Resume" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground"/>
                             </a>
-                            <a href="https://leetcode.com/u/krthk200518/" target="_blank" rel="noopener noreferrer">
-                                <img src={leetcode} alt="LeetCode" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground"/>
+                            <a href="mailto:shrkrthk200518@gmail.com" target="_blank" rel="noopener noreferrer">
+                                <img src={email} alt="Email" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground"/>
                             </a>
                             </div>
                         </Card>
