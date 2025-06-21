@@ -8,7 +8,7 @@ export const projects = [
         duration: 'Feb 2025 - Mar 2025',
         stack: ['react','express', 'nodejs', 'mongodb','tailwind','shadcn'],
         github: 'https://github.com/Kart8ik/CALPAL_2.0',
-        link: 'https://calpal-beige.vercel.app/',
+        link: 'https://calpal-app.vercel.app/',
         explanation:'A Website that helps you organize your tasks every day with a built-in calendar and also create groups to schedule and plan with multiple people, see when your group members are free to plan effectively, all while keeping things needed private.',
         image: calpal
     },
