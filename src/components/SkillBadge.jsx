@@ -26,6 +26,7 @@ import redux from '@/assets/redux.png'
 import shadcn from '@/assets/shadcn.png'
 import tailwind from '@/assets/tailwind.png'
 import tensorflow from '@/assets/tensorflow.png'
+import typescript from '@/assets/typescript.png'
 
 
 export const skills = {
@@ -132,6 +133,10 @@ export const skills = {
   tensorflow: {
     name: 'TensorFlow',
     icon: tensorflow,
+  },
+  typescript: {
+    name: 'TypeScript',
+    icon: typescript,
   },
 }
 
