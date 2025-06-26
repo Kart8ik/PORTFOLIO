@@ -320,11 +320,6 @@ const First = () => {
                         className="box6 col-start-1 col-end-4 row-start-7 row-end-12 sm:col-start-4 sm:col-end-9 sm:row-start-6 sm:row-end-9 z-20"
                         scrollYProgress={scrollYProgress}
                     >
-                    <Link to="/education" className="w-full h-full block" onClick={() => {
-                        if (scrollRef.current) {
-                            sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
-                        }
-                    }}>
                         <Card className="w-all h-full">
                         <CardHeader>
                             <CardTitle className="text-lg sm:text-3xl apply-glow glow-foreground font-medium">Education</CardTitle>
@@ -351,7 +346,6 @@ const First = () => {
                           </Link>
                         )}
                         </Card>
-                    </Link>
                     </AnimatedBox>
 
                     {/* Bottom Large Box */}
@@ -367,8 +361,8 @@ const First = () => {
                             {isSmallScreen ? (
                             <>
                             <CardContent className="overflow-hidden flex flex-col h-full gap-2 overflow-fade-v">
-                            {experience.map((experience) => (
-                                <ExperienceBoxBasic key={experience.company} {...experience} />
+                            {experience.map((experience, index) => (
+                                <ExperienceBoxBasic key={index} {...experience} />
                             ))}
                             </CardContent>
                             <CardFooter className="flex justify-end">

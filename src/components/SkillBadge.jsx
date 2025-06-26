@@ -145,7 +145,7 @@ const SkillBadge = ({ skill }) => {
     <Badge
       key={skill}
       variant="outline"
-      className="text-foreground sm:text-foreground apply-glow glow-foreground font-normal bg-accent p-1 flex-shrink-0"
+      className="flex h-auto text-foreground sm:text-foreground apply-glow glow-foreground font-normal bg-accent p-1 flex-shrink-0"
     >
       <div className="flex items-center">
         <img src={skills[skill].icon} alt={skills[skill].name} className="w-4 h-4 mr-2" />
