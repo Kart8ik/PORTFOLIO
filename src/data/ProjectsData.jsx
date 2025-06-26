@@ -1,5 +1,6 @@
 import calpal from '@/assets/project-images/calpal.png'
 import p2pechovoid from '@/assets/project-images/p2pechovoid.png'
+import loopy from '@/assets/project-images/loopy.png'
 
 export const projects = [
     {
@@ -23,13 +24,13 @@ export const projects = [
         image: p2pechovoid
     },
     {
-        name: 'Loopy-tune',
+        name: 'Loopy',
         description: 'Create your own Background Music',
         duration: 'Jun 2025 - Ongoing',
         stack: ['python', 'fastapi', 'react', 'tailwind','shadcn'],
-        github: 'https://github.com/Kart8ik/Loopy-tune',
+        github: 'https://github.com/Kart8ik/LOOPY--audio-stem-transformer',
         // link: ,
         explanation:'Tired of listening to generic background music when you are working? Wish you could listen to songs you like without vocals distracting you? Loopy-tune allows you to upload songs, removes vocals and then allows you to loop the background music to your liking',
-        // image: loopytune
+        image: loopy
     }
 ]

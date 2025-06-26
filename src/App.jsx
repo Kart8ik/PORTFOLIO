@@ -34,8 +34,8 @@ function App() {
 function AppWrapper() {
   return (
     <Router>
-      <ParticlesBackground />
-      <App />
+      <ParticlesBackground /> //particles background 
+      <App /> //the whole app 
     </Router>
   )
 }
