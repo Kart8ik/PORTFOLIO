@@ -162,7 +162,7 @@ const First = () => {
                                     Object.keys(skills).map((key) =>  {
                                         return (
                                             <div key={key} className="flex flex-row mb-4 overflow-hidden overflow-fade-h">
-                                                <h3 className="text-lg font-semibold apply-glow glow-card-foreground mr-2">{key}:</h3>
+                                                <h3 className="flex-shrink-0 text-lg font-semibold apply-glow glow-card-foreground mr-2">{key}:</h3>
                                                 <div className="flex gap-2 overflow-hidden">
                                                     {skills[key].map((skill) => (
                                                         <SkillBadge key={skill} skill={skill} />
@@ -230,12 +230,12 @@ const First = () => {
                         className="box4 col-start-1 col-end-4 row-start-12 row-end-15 sm:col-start-1 sm:col-end-4 sm:row-start-6 sm:row-end-9 z-20"
                         scrollYProgress={scrollYProgress}
                     >
-                        <Card className="w-full h-full">
-                        <CardHeader>
+                        <Card className="flex flex-col w-full h-full">
+                        <CardHeader className="flex flex-col h-full overflow-y-hidden">
                             <CardTitle className="text-lg sm:text-2xl apply-glow glow-foreground font-medium">Blogs & Gallery</CardTitle>
-                            {isSmallScreen && <CardDescription className="mt-2 text-xs apply-glow glow-card-foreground font-light">I write blogs about my projects and learnings and use art to bring my ideas to life</CardDescription>}
+                            {isSmallScreen && <CardDescription className="flex mt-2 text-xs apply-glow glow-card-foreground font-light overflow-y-hidden">I write blogs about my projects and learnings and use art to bring my ideas to life</CardDescription>}
                         </CardHeader>
-                        {isSmallScreen ? (<CardContent className="flex flex-col h-full items-end justify-end gap-2 w-full">
+                        {isSmallScreen ? (<CardContent className="flex flex-col h-fit items-end justify-end gap-2 w-full">
                                         <Link to="/blogs" className="flex items-center w-full" onClick={() => {
                                             if (scrollRef.current) {
                                                 sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
