@@ -57,7 +57,7 @@ const Skills = () => {
                         <CardHeader>
                         <CardTitle className="text-2xl text-card-foreground apply-glow glow-card-foreground">{category}</CardTitle>
                         </CardHeader>
-                        <CardContent className="flex flex-row gap-2 overflow-hidden">
+                        <CardContent className="flex flex-row gap-2 flex-wrap overflow-hidden">
                         {skillList.map((skill) => (
                             <SkillBadge key={skill} skill={skill} />
                         ))}
