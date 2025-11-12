@@ -331,7 +331,7 @@ const First = () => {
                                 <span className="text-foreground apply-glow glow-foreground text-xs sm:text-md font-light">Aug 2023 - 2027</span>
                             </div>
                             <div className="text-xs sm:text-sm mt-4 text-foreground apply-glow glow-foreground font-light">• Bachelor of Technology in Computer Science and Engineering</div> 
-                            <div className="text-xs sm:text-sm mt-2 text-foreground apply-glow glow-foreground font-light">• CGPA - 9.04</div>
+                            <div className="text-xs sm:text-sm mt-2 text-foreground apply-glow glow-foreground font-light">• CGPA - 9.03</div>
                             </div>
                         </CardContent>
                         ) : (
