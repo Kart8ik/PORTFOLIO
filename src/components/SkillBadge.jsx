@@ -27,7 +27,7 @@ import shadcn from '@/assets/shadcn.png'
 import tailwind from '@/assets/tailwind.png'
 import tensorflow from '@/assets/tensorflow.png'
 import typescript from '@/assets/typescript.png'
-
+import postgresql from '@/assets/postgresql.png'
 
 export const skills = {
   androidstudio: {
@@ -137,6 +137,10 @@ export const skills = {
   typescript: {
     name: 'TypeScript',
     icon: typescript,
+  },
+  postgresql: {
+    name: 'PostgreSQL',
+    icon: postgresql,
   },
 }
 

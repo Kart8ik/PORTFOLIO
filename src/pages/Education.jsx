@@ -60,7 +60,7 @@ const Education = () => {
                             <CardContent>
                                 <div className="flex flex-col justify-center">
                                     <div className="text-md mt-4 text-foreground apply-glow glow-foreground font-light">• Bachelor of Technology in Computer Science and Engineering</div>
-                                    <div className="text-md mt-2 text-foreground apply-glow glow-foreground font-light">• CGPA - 9.04</div>
+                                    <div className="text-md mt-2 text-foreground apply-glow glow-foreground font-light">• CGPA - 9.03</div>
                                 </div>
                             </CardContent>
                         </Card>
