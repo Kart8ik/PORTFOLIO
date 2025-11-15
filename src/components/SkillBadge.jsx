@@ -28,6 +28,7 @@ import tailwind from '@/assets/tailwind.png'
 import tensorflow from '@/assets/tensorflow.png'
 import typescript from '@/assets/typescript.png'
 import postgresql from '@/assets/postgresql.png'
+import supabase from '@/assets/supabase.png'
 
 export const skills = {
   androidstudio: {
@@ -141,6 +142,10 @@ export const skills = {
   postgresql: {
     name: 'PostgreSQL',
     icon: postgresql,
+  },
+  supabase: {
+    name: 'Supabase',
+    icon: supabase,
   },
 }
 

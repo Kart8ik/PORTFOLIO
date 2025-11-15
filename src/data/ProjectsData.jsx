@@ -1,6 +1,7 @@
 import calpal from '@/assets/project-images/calpal.png'
 import p2pechovoid from '@/assets/project-images/p2pechovoid.png'
 import loopy from '@/assets/project-images/loopy.png'
+import leettrack from '@/assets/project-images/leettrack.png'
 
 export const projects = [
     {
@@ -12,6 +13,16 @@ export const projects = [
         link: 'https://calpal-app.vercel.app/',
         explanation:'A Website that helps you organize your tasks every day with a built-in calendar and also create groups to schedule and plan with multiple people, see when your group members are free to plan effectively, all while keeping things needed private.',
         image: calpal
+    },
+    {
+        name: 'LeetTrack',
+        description: 'LeetCode Analytics Platform',
+        duration: 'Oct 2025 - Nov 2025',
+        stack: ['react', 'typescript', 'supabase', 'postgresql','tailwind','shadcn'],
+        github: 'https://github.com/Kart8ik/LeetCode-Analytics-Platform',
+        link: 'https://leettrackpes.vercel.app/',
+        explanation:'A Website that helps track your LeetCode progress with your friends in a leaderboard, with a personal dashboard to see your progress, clean UI and role-based access to allow admins to manage user data designed around use for a university',
+        image: leettrack
     },
     {
         name: 'P2P-Echovoid',
