@@ -1,12 +1,81 @@
-# React + Vite
+# Shri Karthik – Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modular, data-driven developer portfolio built with React + Vite. The UI relies on reusable components (Shadcn UI, Framer Motion, Tailwind utilities) while every content section is hydrated from lightweight data modules. Add or edit data inside `src/data` and the relevant components render the new entries automatically—no component code changes needed.
 
-Currently, two official plugins are available:
+## Highlights
+- **Data-first architecture** – projects, experience, skills, and blog links live in dedicated files inside `src/data`. Pages map over those arrays/objects and render corresponding components (`ProjectBox`, `ExperienceBox`, `SkillBadge`, `BlogBox`) without extra wiring.
+- **Reusable UI primitives** – cards, badges, buttons, and alert dialogs come from Shadcn UI and sit in `src/components/ui`, keeping styling consistent.
+- **Motion-rich navigation** – views are routed via `react-router-dom` and animated with Framer Motion to keep transitions smooth.
+- **Responsive experience guardrails** – `DesktopPrompt` nudges visitors on small screens while `ParticlesBackground` adds ambient motion on desktop.
+- **Optional Instagram gallery** – configure a token once in `src/config/instagram.js` / `.env` and the `useInstagramFeed` hook hydrates the gallery or gracefully fails when unconfigured.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Structure
+```text
+.
+├── public/                 # Static files (favicons, resume, manifest)
+├── src/
+│   ├── assets/             # Logos, skill icons, project imagery, gifs
+│   ├── components/
+│   │   ├── ui/             # Shadcn UI primitives (Card, Button, etc.)
+│   │   └── *.jsx           # Feature components (ProjectBox, SkillBadge…)
+│   ├── config/instagram.js # Central place for Instagram credentials
+│   ├── data/               # <-- The content layer
+│   │   ├── BlogsData.jsx       (array of blog entries)
+│   │   ├── ExperienceData.jsx  (array of roles)
+│   │   ├── ProjectsData.jsx    (array of portfolios items)
+│   │   └── SkillsData.jsx      (category → skills map)
+│   ├── hooks/useInstagramFeed.js
+│   ├── pages/              # Route-level sections (Skills, Projects, etc.)
+│   ├── App.jsx             # Route definitions + transitions
+│   └── main.jsx            # Vite bootstrapper
+├── package.json
+└── vite.config.js
+```
 
-## Expanding the ESLint configuration
+## Content Pipeline (`src/data`)
+Every page imports its data source and maps it straight into components:
+- `Projects.jsx` → `projects` from `ProjectsData.jsx` → `<ProjectBoxComplex {...project} />`
+- `Experience.jsx` → `experience` array → `<ExperienceBoxComplex {...role} />`
+- `Skills.jsx` → `skills` object → category cards full of `<SkillBadge />`
+- `Blogs.jsx` → `blogs` array → `<BlogBox {...blog} />`
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Because the components expect consistent shapes, you only edit the data files to add new content:
+1. Drop any required media into `src/assets` (icons or project images).
+2. Add a new entry inside the relevant `src/data/*.jsx` file.
+3. The next page load automatically renders the new card with proper layout, CTAs, icons, and animations.
+
+> Tip: `SkillBadge` looks up icons using keys defined in `skillsData`. When introducing a new badge, place its PNG in `src/assets`, import it inside `SkillBadge.jsx`, and register the key in the `skills` map.
+
+## Instagram Feed Configuration
+`src/hooks/useInstagramFeed.js` reads values from `src/config/instagram.js`, which in turn relies on Vite env variables. Set these in a `.env` file (obviously don't commit it too):
+
+If no token is present, the hook returns an error state and the gallery stays hidden without crashing the rest of the site.
+
+## Getting Started
+```bash
+git clone https://github.com/Kart8ik/PORTFOLIO
+cd PORTFOLIO
+npm install
+npm run dev
+```
+Visit the printed localhost URL (default `http://localhost:5173`). Hot Module Replacement keeps UI + data edits instant.
+
+### Available Scripts
+- `npm run dev` – start Vite with HMR.
+- `npm run build` – production build with optimized assets.
+- `npm run preview` – locally serve the production build.
+- `npm run lint` – run ESLint with the shared config.
+
+## Deployment
+The app is optimized for static hosting (Vercel, Netlify, GitHub Pages). For Vercel:
+1. Push the repo to GitHub.
+2. Import into Vercel, set the build command to `npm run build`, and output directory to `dist/`.
+3. Add the Instagram env variables in the Vercel project settings.
+
+## Customization Checklist
+- **Branding** – update `src/assets/profile.png`, favicons in `public/`, and hero copy in `src/pages/First.jsx`.
+- **Sections** – add/edit entries in `src/data` to keep every section synchronized.
+- **Badges** – extend `SkillBadge.jsx` when introducing new tech stacks.
+- **Animations** – tweak transitions in each page’s `pageVariants`/`pageTransition` objects for different pacing.
+
+By separating data, presentation, and configuration this portfolio stays easy to extend—drop in new entries, swap assets, or disable integrations without touching the underlying components.
