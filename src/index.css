@@ -171,6 +171,48 @@
   }
 }
 
+@layer components {
+  .insta-feed-grid {
+    @apply grid w-full gap-4 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3;
+  }
+
+  .insta-feed-card {
+    @apply group relative overflow-hidden rounded-xl border border-border/60 bg-card/40 shadow-sm transition duration-200 ease-out;
+  }
+
+  .insta-feed-card:hover {
+    @apply border-border bg-card/60 shadow-md;
+  }
+
+  .insta-feed-image {
+    @apply h-64 w-full object-cover transition duration-300 ease-out;
+  }
+
+  .insta-feed-card:hover .insta-feed-image {
+    @apply scale-105;
+  }
+
+  .insta-feed-caption {
+    @apply pointer-events-none absolute inset-x-0 bottom-0 bg-gradient-to-t from-background/80 via-background/20 to-transparent p-3 text-xs text-foreground opacity-0 transition duration-200 ease-out;
+  }
+
+  .insta-feed-card:hover .insta-feed-caption {
+    @apply opacity-100;
+  }
+
+  .insta-feed-skeleton {
+    @apply h-64 w-full animate-pulse bg-muted/40;
+  }
+
+  .insta-feed-empty {
+    @apply flex flex-col items-center gap-2 rounded-xl border border-dashed border-border/60 bg-card/30 p-10 text-center text-muted-foreground;
+  }
+
+  .insta-feed-alert {
+    @apply rounded-lg border border-destructive/50 bg-destructive/10 px-4 py-3 text-sm text-destructive;
+  }
+}
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
