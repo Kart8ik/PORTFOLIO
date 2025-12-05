@@ -74,7 +74,7 @@ const Gallery = () => {
                             <div className="text-base text-muted-foreground apply-glow glow-muted-foreground font-light">
                                 {isInstagramConfigured
                                     ? `Showing up to ${feedLimit} recent posts from ${instagramHandle} via the Instagram Basic Display API.`
-                                    : 'Add VITE_INSTAGRAM_ACCESS_TOKEN to your environment to enable the live Instagram feed.'}
+                                    : 'Set INSTAGRAM_ACCESS_TOKEN on your server (e.g., Vercel environment or vercel dev) to enable the live Instagram feed.'}
                             </div>
                         </div>
 
