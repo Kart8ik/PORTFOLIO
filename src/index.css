@@ -177,7 +177,8 @@
   }
 
   .insta-feed-card {
-    @apply group relative overflow-hidden rounded-xl border border-border/60 bg-card/40 shadow-sm transition duration-200 ease-out;
+    /* `group` cannot be applied; add it directly to markup instead */
+    @apply relative overflow-hidden rounded-xl border border-border/60 bg-card/40 shadow-sm transition duration-200 ease-out;
   }
 
   .insta-feed-card:hover {

@@ -20,7 +20,7 @@ export function useInstagramFeed(limit = instagramConfig.mediaLimit) {
     const [error, setError] = useState(
         isInstagramConfigured
             ? null
-            : new Error('Instagram token is missing.'),
+            : new Error('Instagram feed is disabled.'),
     );
 
     useEffect(() => {
@@ -31,33 +31,45 @@ export function useInstagramFeed(limit = instagramConfig.mediaLimit) {
         let isCancelled = false;
         const controller = new AbortController();
 
-        const params = new URLSearchParams({
-            fields: instagramConfig.fields,
-            access_token: instagramConfig.token,
-        });
+        const params = new URLSearchParams();
+        if (limit) {
+            params.set('limit', String(limit));
+        }
 
         setStatus(FEED_STATUS.loading);
         setError(null);
 
-        fetch(`${instagramConfig.endpoint}?${params.toString()}`, {
+        const queryString = params.toString();
+        const url = queryString
+            ? `${instagramConfig.endpoint}?${queryString}`
+            : instagramConfig.endpoint;
+
+        fetch(url, {
             signal: controller.signal,
         })
             .then(async (response) => {
+                const payload = await response
+                    .json()
+                    .catch(() => undefined);
+
                 if (!response.ok) {
-                    const payload = await response
-                        .json()
-                        .catch(() => undefined);
                     const message =
-                        payload?.error?.message ||
+                        payload?.error ||
+                        payload?.message ||
                         `Instagram responded with ${response.status}`;
                     throw new Error(message);
                 }
-                return response.json();
+                return payload;
             })
             .then((payload) => {
                 if (isCancelled) return;
                 const items = payload?.data ?? [];
-                setPosts(items.slice(0, limit));
+                setPosts(
+                    items.slice(
+                        0,
+                        limit ?? instagramConfig.mediaLimit,
+                    ),
+                );
                 setStatus(FEED_STATUS.success);
             })
             .catch((fetchError) => {
