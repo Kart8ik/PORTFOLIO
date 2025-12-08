@@ -1,4 +1,4 @@
-const DEFAULT_LIMIT = 6;
+const DEFAULT_LIMIT = 9;
 
 const normalizedUsername = import.meta.env.VITE_INSTAGRAM_USERNAME
     ? import.meta.env.VITE_INSTAGRAM_USERNAME.replace(/^@/, '').trim()
