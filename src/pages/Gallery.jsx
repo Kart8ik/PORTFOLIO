@@ -49,9 +49,9 @@ const Gallery = () => {
             exit="out"
             variants={pageVariants}
             transition={pageTransition}
-            className="w-screen h-screen flex items-center justify-center backdrop-blur-sm"
+            className="w-screen h-screen backdrop-blur-sm"
         >
-            <Card className="w-full h-full bg-card/50 border-0 rounded-none flex flex-col">
+            <Card className="w-full h-full overflow-y-auto no-scrollbar bg-card/50 border-0 rounded-none flex flex-col">
                 <CardHeader>
                     <div className="flex items-center justify-between">
                         <CardTitle className="text-3xl apply-glow glow-foreground font-medium">
@@ -65,18 +65,14 @@ const Gallery = () => {
                         </Button>
                     </div>
                 </CardHeader>
-                <CardContent className="flex w-full h-full px-4 pb-8">
+                <CardContent className="flex w-full px-4 pb-8">
                     <div className="flex grow flex-col gap-6 py-6 w-full max-w-6xl mx-auto">
-                        <div className="text-center space-y-2">
-                            <div className="text-4xl text-foreground apply-glow glow-foreground font-semibold">
-                                Latest on Instagram
+                            {!isInstagramConfigured
+                            && (
+                            <div className="text-base text-muted-foreground apply-glow glow-muted-foreground font-light"> 
+                            Set INSTAGRAM_ACCESS_TOKEN on your server (e.g., Vercel environment or vercel dev) to enable the live Instagram feed.
                             </div>
-                            <div className="text-base text-muted-foreground apply-glow glow-muted-foreground font-light">
-                                {isInstagramConfigured
-                                    ? `Showing up to ${feedLimit} recent posts from ${instagramHandle} via the Instagram Basic Display API.`
-                                    : 'Set INSTAGRAM_ACCESS_TOKEN on your server (e.g., Vercel environment or vercel dev) to enable the live Instagram feed.'}
-                            </div>
-                        </div>
+                            )}
 
                         {hasError && (
                             <div className="insta-feed-alert" role="alert">
@@ -104,9 +100,13 @@ const Gallery = () => {
                                 !isEmpty &&
                                 posts.map((post) => {
                                     const caption = post.caption?.trim();
+                                    const hashtagIndex =
+                                        caption?.indexOf('#') ?? -1;
                                     const truncatedCaption =
-                                        caption && caption.length > 140
-                                            ? `${caption.slice(0, 137)}...`
+                                        hashtagIndex > -1
+                                            ? caption
+                                                  ?.slice(0, hashtagIndex)
+                                                  .trim()
                                             : caption;
                                     const imageUrl =
                                         post.media_type === 'VIDEO'
@@ -131,20 +131,24 @@ const Gallery = () => {
                                                     : 'Open Instagram post'
                                             }
                                         >
-                                            <img
-                                                src={imageUrl}
-                                                alt={
-                                                    truncatedCaption ||
-                                                    'Instagram post'
-                                                }
-                                                loading="lazy"
-                                                className="insta-feed-image"
-                                            />
-                                            {truncatedCaption && (
-                                                <div className="insta-feed-caption">
-                                                    {truncatedCaption}
-                                                </div>
-                                            )}
+                                            <div className="insta-feed-media">
+                                                <img
+                                                    src={imageUrl}
+                                                    alt={
+                                                        truncatedCaption ||
+                                                        'Instagram post'
+                                                    }
+                                                    loading="lazy"
+                                                    className="insta-feed-image"
+                                                />
+                                            </div>
+                                            <div className="insta-feed-caption">
+                                                <span>{instagramHandle}</span>
+                                                <p>
+                                                    {truncatedCaption ||
+                                                        'View on Instagram'}
+                                                </p>
+                                            </div>
                                         </a>
                                     );
                                 })}
