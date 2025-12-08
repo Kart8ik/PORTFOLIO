@@ -47,9 +47,20 @@ Because the components expect consistent shapes, you only edit the data files to
 > Tip: `SkillBadge` looks up icons using keys defined in `skillsData`. When introducing a new badge, place its PNG in `src/assets`, import it inside `SkillBadge.jsx`, and register the key in the `skills` map.
 
 ## Instagram Feed Configuration
-`src/hooks/useInstagramFeed.js` reads values from `src/config/instagram.js`, which in turn relies on Vite env variables. Set these in a `.env` file (obviously don't commit it too):
+`src/hooks/useInstagramFeed.js` now talks to the Vercel function at `/api/instagram`, which keeps the long-lived Instagram token on the server. Configure it via project/environment settings:
 
-If no token is present, the hook returns an error state and the gallery stays hidden without crashing the rest of the site.
+- `INSTAGRAM_ACCESS_TOKEN` (Vercel environment variable) – long-lived Instagram Basic Display token refreshed every ~60 days.
+- `VITE_INSTAGRAM_MEDIA_LIMIT` (optional) – override how many posts are requested.
+- `VITE_INSTAGRAM_USERNAME` (optional) – controls the linked profile handle/URL.
+- `VITE_INSTAGRAM_DISABLED=true` – flip this on if you want to hide the gallery entirely.
+
+Local testing goes through `vercel dev` so the function can read `INSTAGRAM_ACCESS_TOKEN`:
+
+```bash
+INSTAGRAM_ACCESS_TOKEN=xxx vercel dev
+```
+
+If the serverless function fails (missing token, rate limit, etc.), the hook surfaces the error state so the gallery hides without crashing the rest of the site.
 
 ## Getting Started
 ```bash
