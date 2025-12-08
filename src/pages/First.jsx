@@ -257,7 +257,7 @@ const First = () => {
                                             </Button>
                                         </Link>
                         </CardContent>) : (
-                          <Link to="/blogs" className="flex w-full h-full" onClick={() => {
+                          <Link to="/gallery" className="flex w-full h-full" onClick={() => {
                             if (scrollRef.current) {
                                 sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
                             }
