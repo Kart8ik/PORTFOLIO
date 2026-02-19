@@ -4,5 +4,5 @@ export const skills ={
     'Frontend': ['html', 'css','react','typescript', 'nextjs','electron', 'tailwind', 'shadcn', 'framer','redux'],
     'Backend': ['nodejs', 'express', 'fastapi', 'flask','firebase','supabase'],
     'Database': ['mongodb', 'mysql', 'postgresql'],
-    'Tools/Platforms': ['git', 'figma','androidstudio']
+    'Tools/Platforms': ['git', 'figma','androidstudio', 'docker']
 }

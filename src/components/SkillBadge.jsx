@@ -3,6 +3,7 @@ import { Badge } from './ui/badge'
 import androidstudio from '@/assets/androidstudio.png'
 import cpp from '@/assets/cpp.png'
 import css from '@/assets/css.png'
+import docker from '@/assets/docker.png'
 import express from '@/assets/express.png'
 import electron from '@/assets/electron.png'
 import fastapi from '@/assets/fastapi.png'
@@ -42,6 +43,10 @@ export const skills = {
   css: {
     name: 'CSS',
     icon: css,
+  },
+  docker: {
+    name: 'Docker',
+    icon: docker,
   },
   express: {
     name: 'Express',

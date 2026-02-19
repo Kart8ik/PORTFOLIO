@@ -36,9 +36,9 @@ const Experience = () => {
             exit="out"
             variants={pageVariants}
             transition={pageTransition}
-            className="w-screen h-screen flex items-center justify-center backdrop-blur-sm"
+            className="w-screen h-screen backdrop-blur-sm"
         >
-            <Card className="w-full h-full bg-card/50 border-0 rounded-none flex flex-col">
+            <Card className="w-full h-full overflow-y-auto no-scrollbar bg-card/50 border-0 rounded-none flex flex-col">
                 <CardHeader>
                     <div className="flex items-center justify-between">
                         <CardTitle className="text-3xl apply-glow glow-foreground font-medium">Experience</CardTitle>
