@@ -32,6 +32,47 @@ const pageTransition = {
     duration: 1,
 };
 
+const InstagramFeedCard = ({ post, caption, instagramHandle, imageUrl }) => {
+    const [isImageLoading, setIsImageLoading] = React.useState(true);
+
+    return (
+        <a
+            key={post.id}
+            href={post.permalink}
+            target="_blank"
+            rel="noreferrer"
+            className="insta-feed-card"
+            aria-label={
+                caption
+                    ? `Open Instagram post: ${caption}`
+                    : 'Open Instagram post'
+            }
+        >
+            <div className="insta-feed-media">
+                {isImageLoading && (
+                    <div className="insta-feed-loader" aria-hidden="true">
+                        <span className="insta-feed-spinner" />
+                    </div>
+                )}
+                <img
+                    src={imageUrl}
+                    alt={caption || 'Instagram post'}
+                    loading="lazy"
+                    className={`insta-feed-image ${
+                        isImageLoading ? 'opacity-0' : 'opacity-100'
+                    }`}
+                    onLoad={() => setIsImageLoading(false)}
+                    onError={() => setIsImageLoading(false)}
+                />
+            </div>
+            <div className="insta-feed-caption">
+                <span>{instagramHandle}</span>
+                <p>{caption || 'View on Instagram'}</p>
+            </div>
+        </a>
+    );
+};
+
 const Gallery = () => {
     const feedLimit = instagramConfig.mediaLimit;
     const { posts, status, error } = useInstagramFeed(feedLimit);
@@ -119,37 +160,13 @@ const Gallery = () => {
                                     }
 
                                     return (
-                                        <a
+                                        <InstagramFeedCard
                                             key={post.id}
-                                            href={post.permalink}
-                                            target="_blank"
-                                            rel="noreferrer"
-                                            className="insta-feed-card"
-                                            aria-label={
-                                                truncatedCaption
-                                                    ? `Open Instagram post: ${truncatedCaption}`
-                                                    : 'Open Instagram post'
-                                            }
-                                        >
-                                            <div className="insta-feed-media">
-                                                <img
-                                                    src={imageUrl}
-                                                    alt={
-                                                        truncatedCaption ||
-                                                        'Instagram post'
-                                                    }
-                                                    loading="lazy"
-                                                    className="insta-feed-image"
-                                                />
-                                            </div>
-                                            <div className="insta-feed-caption">
-                                                <span>{instagramHandle}</span>
-                                                <p>
-                                                    {truncatedCaption ||
-                                                        'View on Instagram'}
-                                                </p>
-                                            </div>
-                                        </a>
+                                            post={post}
+                                            caption={truncatedCaption}
+                                            instagramHandle={instagramHandle}
+                                            imageUrl={imageUrl}
+                                        />
                                     );
                                 })}
 

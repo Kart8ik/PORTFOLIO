@@ -1,10 +1,12 @@
+import technovisionCertificate from '../assets/certificates/technovision-certificate.pdf'
+
 export const experience = [
     {
         company: 'TechnoVision',
         position: 'Software Developer',
         duration: 'Dec 2025 - Jan 2026',
         location: 'Bengaluru, India',
-        link: null,
+        link: technovisionCertificate,
         description: 'Designed and developed an internal desktop application to generate First Article Inspection (FAI) reports from annotated design PDFs, streamlining QA workflows and cutting manual effort by ~40%.',
         skills: ['python']
     },

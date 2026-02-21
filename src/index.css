@@ -208,6 +208,14 @@
     @apply w-full aspect-[4/5] object-cover transition duration-300 ease-out;
   }
 
+  .insta-feed-loader {
+    @apply absolute inset-0 flex items-center justify-center bg-black/20 pointer-events-none;
+  }
+
+  .insta-feed-spinner {
+    @apply h-8 w-8 rounded-full border-2 border-muted-foreground/40 border-t-foreground animate-spin;
+  }
+
   .insta-feed-caption {
     @apply flex flex-col h-auto gap-1 p-4 text-sm text-foreground bg-card/80;
   }

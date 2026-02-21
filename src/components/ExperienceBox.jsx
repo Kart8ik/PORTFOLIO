@@ -1,6 +1,7 @@
 import React from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
 import SkillBadge from './SkillBadge'
+import { ExternalLink } from 'lucide-react'
 
 export const ExperienceBoxBasic = ({company, position, duration, location, description}) => {
   return (
@@ -41,7 +42,17 @@ export const ExperienceBoxComplex = ({company, position, duration, location, lin
                     <SkillBadge key={index} skill={skill} />
                 ))}
             </div>
-              {link && (<a href={link} target="_blank" rel="noopener noreferrer">proof of work</a>)}
+                            {link && (
+                                <a
+                                    href={link}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                      className="inline-flex items-center justify-end gap-1 text-sm text-card-foreground apply-glow glow-card-foreground font-light"
+                                >
+                                    <span>View Certificate</span>
+                                    <ExternalLink size={14} />
+                                </a>
+                            )}
           <CardDescription className="text-foreground sm:text-foreground text-sm apply-glow glow-card-foreground font-light">{description}</CardDescription>
         </CardContent>
     </Card>
