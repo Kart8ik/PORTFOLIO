@@ -2,8 +2,40 @@ import calpal from '@/assets/project-images/calpal.png'
 import p2pechovoid from '@/assets/project-images/p2pechovoid.png'
 import loopy from '@/assets/project-images/loopy.png'
 import leettrack from '@/assets/project-images/leettrack.png'
+import voiceaiplatform from '@/assets/project-images/voiceaiplatform.png'
+import portotui from '@/assets/project-images/portotui.png'
 
 export const projects = [
+    {
+        name: 'LeetTrack',
+        description: 'LeetCode Analytics Platform',
+        duration: 'Oct 2025 - Nov 2025',
+        stack: ['react', 'typescript', 'supabase', 'postgresql', 'tailwind', 'shadcn'],
+        github: 'https://github.com/Kart8ik/LeetCode-Analytics-Platform',
+        link: 'https://leettrackpes.vercel.app/',
+        explanation: 'A Website that helps track your LeetCode progress with your friends in a leaderboard, with a personal dashboard to see your progress, clean UI and role-based access to allow admins to manage user data designed around use for a university',
+        image: leettrack
+    },
+    {
+        name: 'VoiceAI',
+        description: 'An Open Source Alternative to Vapi, Retell AI, and Bland AI.',
+        duration: 'Feb 2026 - Mar 2026',
+        stack: ['python', 'typescript', 'docker'],
+        github: 'https://github.com/Kart8ik/Voice-AI-Platform',
+        // link: ,
+        explanation: 'The complete, production-ready platform for building, deploying, and managing Voice AI Agents. Built on LiveKit(Real- time WebRTC) and Vobiz(Telephony / SIP).',
+        image: voiceaiplatform
+    },
+    {
+        name: 'Portfolio-TUI',
+        description: 'A Portfolio in the terminal via npm',
+        duration: 'Feb 2026 - Feb 2026',
+        stack: ['react', 'nodejs'],
+        github: 'https://github.com/Kart8ik/portfolio-TUI',
+        link: 'https://www.npmjs.com/package/shrikarthik',
+        explanation:'This is a clean terminal portfolio that runs as an npm CLI package. Built using React + ink, run the command `npx shrikarthik` to see the portfolio',
+        image: portotui
+    },
     {
         name: 'CalPal',
         description: 'Collaborative Task Management App',
@@ -13,16 +45,6 @@ export const projects = [
         link: 'https://calpal-app.vercel.app/',
         explanation:'A Website that helps you organize your tasks every day with a built-in calendar and also create groups to schedule and plan with multiple people, see when your group members are free to plan effectively, all while keeping things needed private.',
         image: calpal
-    },
-    {
-        name: 'LeetTrack',
-        description: 'LeetCode Analytics Platform',
-        duration: 'Oct 2025 - Nov 2025',
-        stack: ['react', 'typescript', 'supabase', 'postgresql','tailwind','shadcn'],
-        github: 'https://github.com/Kart8ik/LeetCode-Analytics-Platform',
-        link: 'https://leettrackpes.vercel.app/',
-        explanation:'A Website that helps track your LeetCode progress with your friends in a leaderboard, with a personal dashboard to see your progress, clean UI and role-based access to allow admins to manage user data designed around use for a university',
-        image: leettrack
     },
     {
         name: 'P2P-Echovoid',
