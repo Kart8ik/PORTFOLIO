@@ -48,7 +48,7 @@ export const projects = [
         image: srrag
     },
     {
-        name: 'Fairy',
+        name: 'FAIR-y',
         description: 'Desktop app for annotating drawings and generating structured FAIR inspection reports.',
         duration: 'Dec 2025 - Jan 2026',
         stack: ['python'],
