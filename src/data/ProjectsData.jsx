@@ -4,8 +4,58 @@ import loopy from '@/assets/project-images/loopy.png'
 import leettrack from '@/assets/project-images/leettrack.png'
 import voiceaiplatform from '@/assets/project-images/voiceaiplatform.png'
 import portotui from '@/assets/project-images/portotui.png'
+import codeforensics from '@/assets/project-images/codeforensics.png'
+import fairy from '@/assets/project-images/fairy.png'
+import miniraftpaint98 from '@/assets/project-images/miniraftpaint98.png'
+import srrag from '@/assets/project-images/srrag.png'
 
 export const projects = [
+    {
+        name: 'Code Forensics',
+        description: 'Study to evaluate if combining ML, static metrics, and LLMs improves code quality analysis.',
+        duration: 'Jan 2026 - Feb 2026',
+        stack: ['python', 'pandas', 'numpy', 'Llama 3'],
+        github: 'https://github.com/Kart8ik/code-forensics',
+        explanation: 'An empirical study evaluating whether combining static code metrics, classical machine learning, and LLM-based semantic reasoning provides better code quality analysis than using each technique independently.',
+        image: codeforensics
+    },
+    {
+        name: 'VoiceAI',
+        description: 'An Open Source Alternative to Vapi, Retell AI, and Bland AI.',
+        duration: 'Feb 2026 - Mar 2026',
+        stack: ['python', 'typescript', 'docker'],
+        github: 'https://github.com/Kart8ik/Voice-AI-Platform',
+        // link: ,
+        explanation: 'The complete, production-ready platform for building, deploying, and managing Voice AI Agents. Built on LiveKit(Real- time WebRTC) and Vobiz(Telephony / SIP).',
+        image: voiceaiplatform
+    },
+    {
+        name: 'Miniraft Paint 98',
+        description: 'A distributed collaborative drawing board inspired by MS Paint 98',
+        duration: 'Mar 2026 - Apr 2026',
+        stack: ['python', 'typescript', 'docker'],
+        github: 'https://github.com/Kart8ik/MS-Paint_98_Mini-Raft',
+        explanation: 'A real-time collaborative MS Paint 98 inspired drawing application powered by a distributed Mini-Raft consensus system to ensure consistent state across multiple nodes.',
+        image: miniraftpaint98
+    },
+    {
+        name: 'Self-Refuting RAG',
+        description: 'SR-RAG is a multi-agent QA system for accurate, transparent answers via claim verification.',
+        duration: 'Mar 2026 - Apr 2026',
+        stack: ['python', 'langchain', 'Llama 3', 'RAG', 'multi-agent'],
+        github: 'https://github.com/Kart8ik/Self-Refuting-RAG',
+        explanation: 'SR-RAG is a multi-agent question answering system designed to improve factual accuracy and transparency through claim-level adversarial verification.',
+        image: srrag
+    },
+    {
+        name: 'Fairy',
+        description: 'Desktop app for annotating drawings and generating structured FAIR inspection reports.',
+        duration: 'Dec 2025 - Jan 2026',
+        stack: ['python'],
+        github: 'https://github.com/Kart8ik/FAIR-y_report-tool',
+        explanation: 'Desktop application for annotating engineering drawings with indexed inspection callouts, capturing dimensional data (characteristic, requirement, tolerances, equipment), and generating structured First Article Inspection Reports (FAIR) with project persistence and export workflows. Used by clients at two companies currently.',
+        image: fairy
+    },
     {
         name: 'LeetTrack',
         description: 'LeetCode Analytics Platform',
@@ -17,14 +67,14 @@ export const projects = [
         image: leettrack
     },
     {
-        name: 'VoiceAI',
-        description: 'An Open Source Alternative to Vapi, Retell AI, and Bland AI.',
-        duration: 'Feb 2026 - Mar 2026',
-        stack: ['python', 'typescript', 'docker'],
-        github: 'https://github.com/Kart8ik/Voice-AI-Platform',
+        name: 'Loopy',
+        description: 'Create your own Background Music',
+        duration: 'Jun 2025 - Ongoing',
+        stack: ['python', 'fastapi', 'react', 'typescript', 'tailwind', 'shadcn'],
+        github: 'https://github.com/Kart8ik/LOOPY--audio-stem-transformer',
         // link: ,
-        explanation: 'The complete, production-ready platform for building, deploying, and managing Voice AI Agents. Built on LiveKit(Real- time WebRTC) and Vobiz(Telephony / SIP).',
-        image: voiceaiplatform
+        explanation: 'Tired of listening to generic background music when you are working? Wish you could listen to songs you like without vocals distracting you? Loopy-tune allows you to upload songs, removes vocals and then allows you to loop the background music to your liking',
+        image: loopy
     },
     {
         name: 'Portfolio-TUI',
@@ -55,15 +105,5 @@ export const projects = [
         // link: ,
         explanation:'A lightweight, peer-to-peer chat app built with Electron and custom networking libraries. No servers, no middlemen — just pure local network wizardry. Connect, broadcast, and chat with other agents on the same network.',
         image: p2pechovoid
-    },
-    {
-        name: 'Loopy',
-        description: 'Create your own Background Music',
-        duration: 'Jun 2025 - Ongoing',
-        stack: ['python', 'fastapi', 'react','typescript', 'tailwind','shadcn'],
-        github: 'https://github.com/Kart8ik/LOOPY--audio-stem-transformer',
-        // link: ,
-        explanation:'Tired of listening to generic background music when you are working? Wish you could listen to songs you like without vocals distracting you? Loopy-tune allows you to upload songs, removes vocals and then allows you to loop the background music to your liking',
-        image: loopy
     }
 ]

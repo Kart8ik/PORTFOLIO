@@ -162,8 +162,14 @@ const SkillBadge = ({ skill }) => {
       className="flex text-foreground sm:text-foreground apply-glow glow-foreground font-normal bg-accent p-1 flex-shrink-0"
     >
       <div className="flex items-center">
-        <img src={skills[skill].icon} alt={skills[skill].name} className="w-4 h-4 mr-2" />
-        {skills[skill].name}
+        {skills[skill] ? (
+          <>
+            <img src={skills[skill].icon} alt={skills[skill].name} className="w-4 h-4 mr-2" />
+            <span>{skills[skill].name}</span>
+          </>
+        ) : (
+          <span>{skill}</span>
+        )}
       </div>
     </Badge>
   )
