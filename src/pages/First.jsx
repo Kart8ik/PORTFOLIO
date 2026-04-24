@@ -21,32 +21,19 @@ import educationgif from '@/assets/section-gifs/educationicon.gif'
 import experiencegif from '@/assets/section-gifs/experienceicon.gif'
 import blogsgif from '@/assets/section-gifs/blogsicon.gif'
 import { projects } from '@/data/ProjectsData'
-
-const pageVariants = {
-    initial: {
-        opacity: 0,
-        transform: 'translateZ(0)',
-    },
-    in: {
-        opacity: 1,
-        transform: 'translateZ(0)',
-    },
-    out: {
-        opacity: 0,
-        transform: 'translateZ(0)',
-    },
-};
-
-const pageTransition = {
-    type: 'tween',
-    ease: 'anticipate',
-    duration: 1,
-};
+import { pageTransition, pageVariants } from '@/lib/animations'
+import { setPendingRect } from '@/lib/expandState'
+import OptimizedImage from '@/components/OptimizedImage'
 
 const First = () => {
   const scrollRef = useRef(null)
   const { scrollYProgress } = useScroll({ container: scrollRef })
   const [isSmallScreen, setIsSmallScreen] = useState(false)
+  const projectsRef = useRef(null)
+  const skillsRef = useRef(null)
+  const galleryRef = useRef(null)
+  const educationRef = useRef(null)
+  const experienceRef = useRef(null)
 
   useLayoutEffect(() => {
     const savedScrollPosition = sessionStorage.getItem('scrollPosition');
@@ -91,7 +78,7 @@ const First = () => {
         <motion.div
             initial="initial"
             animate="in"
-            exit="out"
+            exit={{ opacity: 0, transition: { duration: 0.05 } }}
             variants={pageVariants}
             transition={pageTransition}
             className="w-full h-full relative"
@@ -106,6 +93,7 @@ const First = () => {
                         className="box1 col-start-1 col-end-6 row-start-1 row-end-7 sm:col-start-1 sm:col-end-7 sm:row-start-1 sm:row-end-6 z-20"
                         scrollYProgress={scrollYProgress}
                     >
+                        <div ref={projectsRef} className="w-full h-full rounded-lg overflow-hidden">
                         <Card className="w-full h-full sm:gap-2">
                         <CardHeader>
                             <CardTitle className="text-2xl sm:text-3xl apply-glow glow-foreground font-medium ">Projects</CardTitle>
@@ -119,9 +107,8 @@ const First = () => {
                         </CardContent>
                         <CardFooter className="flex justify-end">
                             <Link to="/projects" className="flex items-center" onClick={() => {
-                                if (scrollRef.current) {
-                                    sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
-                                }
+                                if (projectsRef.current) setPendingRect(projectsRef.current.getBoundingClientRect());
+                                if (scrollRef.current) sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
                             }}>
                                 <Button variant="outline" className="text-card-foreground apply-glow glow-card-foreground">
                                     View All 
@@ -132,17 +119,17 @@ const First = () => {
                         </>
                         ) : (
                             <Link to="/projects" className="flex w-full h-full" onClick={() => {
-                                if (scrollRef.current) {
-                                    sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
-                                }
+                                if (projectsRef.current) setPendingRect(projectsRef.current.getBoundingClientRect());
+                                if (scrollRef.current) sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
                             }}>
                                 <CardContent className="flex flex-col w-full h-full items-end justify-end">
-                                    <img src={projectgif} alt="Projects" className="w-1/2 h-auto img-glow glow-foreground" />
+                                    <OptimizedImage src={projectgif} alt="Projects" className="w-1/2 h-auto img-glow glow-foreground" loading="eager" fetchPriority="high" />
                                 </CardContent>
                             </Link>
                         )
                         }
                         </Card>
+                        </div>
                     </AnimatedBox>
 
                     {/* Top Right Large Box */}
@@ -151,6 +138,7 @@ const First = () => {
                         className="box2 col-start-6 col-end-9 row-start-3 row-end-9 sm:col-start-7 sm:col-end-14 sm:row-start-1 sm:row-end-4 z-20"
                         scrollYProgress={scrollYProgress}
                         >
+                        <div ref={skillsRef} className="w-full h-full rounded-lg overflow-hidden">
                         <Card className="w-full h-full gap-2">
                             <CardHeader>
                                 <CardTitle className="text-xl sm:text-3xl apply-glow glow-foreground font-medium ">Skills</CardTitle>
@@ -175,9 +163,8 @@ const First = () => {
                               </CardContent>
                               <CardFooter className="flex justify-end ">
                                 <Link to="/skills" className="flex items-center" onClick={() => {
-                                    if (scrollRef.current) {
-                                        sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
-                                    }
+                                    if (skillsRef.current) setPendingRect(skillsRef.current.getBoundingClientRect());
+                                    if (scrollRef.current) sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
                                 }}>
                                 <Button variant="outline" className="text-card-foreground apply-glow glow-card-foreground">
                                         View All
@@ -188,16 +175,16 @@ const First = () => {
                               </>
                               ) : (
                                 <Link to="/skills" className="flex w-full h-full" onClick={() => {
-                                    if (scrollRef.current) {
-                                        sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
-                                    }
+                                    if (skillsRef.current) setPendingRect(skillsRef.current.getBoundingClientRect());
+                                    if (scrollRef.current) sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
                                 }}>
                                     <CardContent className="flex flex-col w-full h-full items-end justify-end">
-                                        <img src={skillgif} alt="Skills" className="w-2/3 h-auto img-glow glow-foreground" />
+                                        <OptimizedImage src={skillgif} alt="Skills" className="w-2/3 h-auto img-glow glow-foreground" loading="eager" fetchPriority="high" />
                                     </CardContent>
                                 </Link>
                             )}
                         </Card>
+                        </div>
                     </AnimatedBox>
 
                     {/* Vertical Box on Far Right */}
@@ -209,16 +196,16 @@ const First = () => {
                         <Card className="flex w-full h-full flex-wrap py-0">
                             <div className="flex flex-col w-full h-full items-center justify-center sm:justify-between flex-wrap sm:flex-nowrap  gap-4 sm:gap-0">
                             <a href="https://github.com/kart8ik" target="_blank" rel="noopener noreferrer">
-                                <img src={github} alt="GitHub" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground"/>
+                                <OptimizedImage src={github} alt="GitHub" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground" loading="eager"/>
                             </a>
                             <a href="https://www.linkedin.com/in/a--shri--karthik/" target="_blank" rel="noopener noreferrer">
-                                <img src={linkedin} alt="LinkedIn" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground"/>
+                                <OptimizedImage src={linkedin} alt="LinkedIn" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground" loading="eager"/>
                             </a>
-                            <a href="/SHRI_KARTHIK_RESUME.pdf" download>
-                                <img src={resume} alt="Resume" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground"/>
+                            <a href="/SHRI_KARTHIK_RESUME.pdf" target="_blank" rel="noopener noreferrer">
+                                <OptimizedImage src={resume} alt="Resume" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground" loading="eager"/>
                             </a>
                             <a href="mailto:shrkrthk200518@gmail.com" target="_blank" rel="noopener noreferrer">
-                                <img src={email} alt="Email" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground"/>
+                                <OptimizedImage src={email} alt="Email" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground" loading="eager"/>
                             </a>
                             </div>
                         </Card>
@@ -230,6 +217,7 @@ const First = () => {
                         className="box4 col-start-1 col-end-4 row-start-12 row-end-15 sm:col-start-1 sm:col-end-4 sm:row-start-6 sm:row-end-9 z-20"
                         scrollYProgress={scrollYProgress}
                     >
+                        <div ref={galleryRef} className="w-full h-full rounded-lg overflow-hidden">
                         <Card className="flex flex-col w-full h-full">
                         <CardHeader className="flex flex-col h-full overflow-y-hidden">
                             <CardTitle className="text-lg sm:text-2xl apply-glow glow-foreground font-medium">Blogs & Gallery</CardTitle>
@@ -237,9 +225,8 @@ const First = () => {
                         </CardHeader>
                         {isSmallScreen ? (<CardContent className="flex flex-col h-fit items-end justify-end gap-2 w-full">
                                         <Link to="/blogs" className="flex items-center w-full" onClick={() => {
-                                            if (scrollRef.current) {
-                                                sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
-                                            }
+                                            if (galleryRef.current) setPendingRect(galleryRef.current.getBoundingClientRect());
+                                            if (scrollRef.current) sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
                                         }}>
                                         <Button variant="outline" className="text-card-foreground apply-glow glow-card-foreground w-full">
                                                 View Blogs
@@ -247,9 +234,8 @@ const First = () => {
                                         </Button>
                                         </Link>
                                         <Link to="/gallery" className="flex items-center w-full" onClick={() => {
-                                            if (scrollRef.current) {
-                                                sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
-                                            }
+                                            if (galleryRef.current) setPendingRect(galleryRef.current.getBoundingClientRect());
+                                            if (scrollRef.current) sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
                                         }}>
                                             <Button variant="outline" className="text-card-foreground apply-glow glow-card-foreground w-full">
                                                 View Gallery
@@ -258,17 +244,17 @@ const First = () => {
                                         </Link>
                         </CardContent>) : (
                           <Link to="/gallery" className="flex w-full h-full" onClick={() => {
-                            if (scrollRef.current) {
-                                sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
-                            }
+                            if (galleryRef.current) setPendingRect(galleryRef.current.getBoundingClientRect());
+                            if (scrollRef.current) sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
                         }}>
                             <CardContent className="flex flex-col w-full h-full items-end justify-end">
                               
-                                <img src={blogsgif} alt="Blogs" className="w-1/2 h-auto img-glow glow-foreground" />
+                                <OptimizedImage src={blogsgif} alt="Blogs" className="w-1/2 h-auto img-glow glow-foreground" loading="eager" fetchPriority="high" />
                             </CardContent>
                           </Link>
                         )}
                         </Card>
+                        </div>
                     </AnimatedBox>
 
                     {/* Middle Box with absolute centering */}
@@ -298,20 +284,24 @@ const First = () => {
                             </motion.div>
                             }
                             {isSmallScreen && <motion.div className="flex items-center justify-center" style={{ flexBasis: imageFlexBasis, flexShrink: 0 }}>
-                            <motion.img src={profile} alt="Profile" style={{ width: imageSize, height: imageSize, filter: 'drop-shadow(0 0 5px rgba(42, 49, 85, 1))' }} className="rounded-md" />
+                            <motion.img src={profile} alt="Profile" loading="eager" fetchPriority="high" decoding="async" style={{ width: imageSize, height: imageSize, filter: 'drop-shadow(0 0 5px rgba(42, 49, 85, 1))' }} className="rounded-md" />
                             </motion.div>
                             }
                             {!isSmallScreen && <motion.div className="flex items-center justify-end" style={{ flexBasis: imageFlexBasisSmall, flexShrink: 0 }}>
-                            <motion.img src={profile} alt="Profile" style={{ width: imageSizeSmall, height: imageSizeSmall, filter: 'drop-shadow(0 0 5px rgba(42, 49, 85, 1))' }} className="rounded-md" />
+                            <motion.img src={profile} alt="Profile" loading="eager" fetchPriority="high" decoding="async" style={{ width: imageSizeSmall, height: imageSizeSmall, filter: 'drop-shadow(0 0 5px rgba(42, 49, 85, 1))' }} className="rounded-md" />
                             </motion.div>
                             }
                         </motion.div>
                     </div>
                     <motion.div className='absolute top-5/6 left-1/2 -translate-x-1/2 -translate-y-1/2' style={{ opacity: textOpacity }}>
-                        <div className='flex flex-col items-center justify-center gap-2 animate-bounce'>
+                        <motion.div
+                            className='flex flex-col items-center justify-center gap-2'
+                            animate={{ y: [0, -6, 0] }}
+                            transition={{ duration: 1.4, repeat: Infinity, ease: [0.22, 1, 0.36, 1] }}
+                        >
                             <h1 className='text-4xl apply-glow glow-foreground'>Scroll</h1>
                             <ArrowUpIcon className='w-10 h-10 img-glow glow-foreground' style={{ filter: 'drop-shadow(0 0 5px rgb(87, 100, 169))' }}/>
-                        </div>
+                        </motion.div>
                     </motion.div>
 
                     {/* Middle Right Box */}
@@ -320,6 +310,7 @@ const First = () => {
                         className="box6 col-start-1 col-end-4 row-start-7 row-end-12 sm:col-start-4 sm:col-end-9 sm:row-start-6 sm:row-end-9 z-20"
                         scrollYProgress={scrollYProgress}
                     >
+                        <div ref={educationRef} className="w-full h-full rounded-lg overflow-hidden">
                         <Card className="w-all h-full">
                         <CardHeader>
                             <CardTitle className="text-lg sm:text-3xl apply-glow glow-foreground font-medium">Education</CardTitle>
@@ -336,16 +327,16 @@ const First = () => {
                         </CardContent>
                         ) : (
                           <Link to="/education" className="flex w-full h-full" onClick={() => {
-                            if (scrollRef.current) {
-                                sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
-                            }
+                            if (educationRef.current) setPendingRect(educationRef.current.getBoundingClientRect());
+                            if (scrollRef.current) sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
                         }}>
                             <CardContent className="flex flex-col w-full h-full items-end justify-end">
-                                <img src={educationgif} alt="Education" className="w-2/3 h-auto img-glow glow-foreground" />
+                                <OptimizedImage src={educationgif} alt="Education" className="w-2/3 h-auto img-glow glow-foreground" loading="eager" fetchPriority="high" />
                             </CardContent>
                           </Link>
                         )}
                         </Card>
+                        </div>
                     </AnimatedBox>
 
                     {/* Bottom Large Box */}
@@ -354,6 +345,7 @@ const First = () => {
                         className="box7 col-start-4 col-end-9 row-start-9 row-end-15 sm:col-start-9 sm:col-end-15 sm:row-start-4 sm:row-end-9 z-20"
                         scrollYProgress={scrollYProgress}
                     >
+                        <div ref={experienceRef} className="w-full h-full rounded-lg overflow-hidden">
                         <Card className="w-full h-full">
                             <CardHeader>
                             <CardTitle className="text-2xl sm:text-3xl apply-glow glow-foreground font-medium">Experience</CardTitle>
@@ -367,9 +359,8 @@ const First = () => {
                             </CardContent>
                             <CardFooter className="flex justify-end">
                               <Link to="/experience" className="flex items-center" onClick={() => {
-                                        if (scrollRef.current) {
-                                            sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
-                                        }
+                                        if (experienceRef.current) setPendingRect(experienceRef.current.getBoundingClientRect());
+                                        if (scrollRef.current) sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
                                     }}>
                                 <Button variant="outline" className="text-card-foreground apply-glow glow-card-foreground">
                                         View All
@@ -380,16 +371,16 @@ const First = () => {
                             </>
                             ) : (
                                 <Link to="/experience" className="flex w-full h-full" onClick={() => {
-                                    if (scrollRef.current) {
-                                        sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
-                                    }
+                                    if (experienceRef.current) setPendingRect(experienceRef.current.getBoundingClientRect());
+                                    if (scrollRef.current) sessionStorage.setItem('scrollPosition', scrollRef.current.scrollTop);
                                 }}>
                                     <CardContent className="flex flex-col w-full h-full items-end justify-end">
-                                        <img src={experiencegif} alt="Experience" className="w-1/2 h-auto img-glow glow-foreground" />
+                                        <OptimizedImage src={experiencegif} alt="Experience" className="w-1/2 h-auto img-glow glow-foreground" loading="eager" fetchPriority="high" />
                                     </CardContent>
                                 </Link>
                             )}
                         </Card>
+                        </div>
                     </AnimatedBox>
                     </div>
                 </div>

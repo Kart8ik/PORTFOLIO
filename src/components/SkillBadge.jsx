@@ -30,6 +30,7 @@ import tensorflow from '@/assets/tensorflow.png'
 import typescript from '@/assets/typescript.png'
 import postgresql from '@/assets/postgresql.png'
 import supabase from '@/assets/supabase.png'
+import OptimizedImage from './OptimizedImage'
 
 export const skills = {
   androidstudio: {
@@ -162,8 +163,14 @@ const SkillBadge = ({ skill }) => {
       className="flex text-foreground sm:text-foreground apply-glow glow-foreground font-normal bg-accent p-1 flex-shrink-0"
     >
       <div className="flex items-center">
-        <img src={skills[skill].icon} alt={skills[skill].name} className="w-4 h-4 mr-2" />
-        {skills[skill].name}
+        {skills[skill] ? (
+          <>
+            <OptimizedImage src={skills[skill].icon} alt={skills[skill].name} className="w-4 h-4 mr-2" />
+            <span>{skills[skill].name}</span>
+          </>
+        ) : (
+          <span>{skill}</span>
+        )}
       </div>
     </Badge>
   )

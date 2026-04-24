@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <DesktopPrompt />
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="sync" initial={false}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<First />} />
           <Route path="/skills" element={<Skills />} />
