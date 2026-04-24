@@ -1,27 +1,23 @@
 export const pageVariants = {
     initial: {
         opacity: 0,
-        y: 16,
-        scale: 0.985,
-        filter: 'blur(4px)',
+        y: 10,
+        scale: 0.99,
     },
     in: {
         opacity: 1,
         y: 0,
         scale: 1,
-        filter: 'blur(0px)',
     },
     out: {
         opacity: 0,
-        y: -10,
-        scale: 1.01,
-        filter: 'blur(3px)',
+        y: -6,
+        scale: 1.005,
     },
 };
 
 export const pageTransition = {
-    type: 'spring',
-    stiffness: 190,
-    damping: 24,
-    mass: 0.8,
+    type: 'tween',
+    ease: [0.25, 0.46, 0.45, 0.94],
+    duration: 0.4,
 };

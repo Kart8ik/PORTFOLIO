@@ -30,7 +30,7 @@ export const projects = [
         image: voiceaiplatform
     },
     {
-        name: 'Miniraft Paint 98',
+        name: 'Mini-RAFT Paint 98',
         description: 'A distributed collaborative drawing board inspired by MS Paint 98',
         duration: 'Mar 2026 - Apr 2026',
         stack: ['python', 'typescript', 'docker'],
