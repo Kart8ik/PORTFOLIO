@@ -2,7 +2,6 @@ import { motion, useTransform } from 'framer-motion';
 
 const AnimatedBox = ({ children, from, className, scrollYProgress }) => {
   const getTransformations = (direction, progress) => {
-    // The animation will complete when the user has scrolled 30% of the page.
     const animationRange = [0, 0.6];
 
     switch (direction) {
@@ -57,7 +56,7 @@ const AnimatedBox = ({ children, from, className, scrollYProgress }) => {
 
   const style = getTransformations(from, scrollYProgress);
 
-  const transition = { type: 'spring', stiffness: 50, damping: 20 };
+  const transition = { type: 'spring', stiffness: 150, damping: 18, mass: 0.7 };
 
   return (
     <motion.div 

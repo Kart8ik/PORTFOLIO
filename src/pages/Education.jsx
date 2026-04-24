@@ -4,27 +4,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowLeftIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
-
-const pageVariants = {
-    initial: {
-        opacity: 0,
-        transform: 'translateZ(0)',
-    },
-    in: {
-        opacity: 1,
-        transform: 'translateZ(0)',
-    },
-    out: {
-        opacity: 0,
-        transform: 'translateZ(0)',
-    },
-};
-
-const pageTransition = {
-    type: 'tween',
-    ease: 'anticipate',
-    duration: 1,
-};
+import { pageTransition, pageVariants } from '@/lib/animations';
 
 const Education = () => {
     return (

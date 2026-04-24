@@ -6,27 +6,7 @@ import SkillBadge from '@/components/SkillBadge'
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { skills } from '@/data/SkillsData'
-
-const pageVariants = {
-    initial: {
-        opacity: 0,
-        transform: 'translateZ(0)',
-    },
-    in: {
-        opacity: 1,
-        transform: 'translateZ(0)',
-    },
-    out: {
-        opacity: 0,
-        transform: 'translateZ(0)',
-    },
-};
-
-const pageTransition = {
-    type: 'tween',
-    ease: 'anticipate',
-    duration: 0.8,
-};
+import { pageTransition, pageVariants } from '@/lib/animations'
 
 const Skills = () => {
   return (

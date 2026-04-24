@@ -2,6 +2,7 @@ import React from 'react'
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
 import SkillBadge from './SkillBadge'
 import { Button } from './ui/button'
+import OptimizedImage from './OptimizedImage'
 
 export const ProjectBoxBasic = ({name, description, stack}) => {
   return (
@@ -25,7 +26,7 @@ export const ProjectBoxComplex = ({name, description, duration, stack, github, l
         <CardHeader className="flex flex-col w-full justify-between items-center sm:px-4">
           <div className='w-full'>
             {image ? (
-              <img src={image} alt={name} className="w-full aspect-[21/9] object-cover rounded-md" />
+              <OptimizedImage src={image} alt={name} className="w-full object-cover rounded-md" />
             ) : (
               <div className="w-full aspect-[21/9] bg-background/40 rounded-md " />
             )}

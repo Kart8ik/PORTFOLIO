@@ -1,7 +1,7 @@
 import { AnimatePresence } from 'framer-motion';
 import ParticlesBackground from './components/ParticlesBackground';
 import './App.css';
-import First from './pages/First';
+import First from './pages/first';
 import Skills from './pages/Skills';
 import Experience from './pages/Experience';
 import Education from './pages/Education';
@@ -16,7 +16,7 @@ function App() {
   return (
     <>
       <DesktopPrompt />
-      <AnimatePresence mode="wait">
+      <AnimatePresence mode="wait" initial={false}>
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<First />} />
           <Route path="/skills" element={<Skills />} />

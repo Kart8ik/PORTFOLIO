@@ -6,27 +6,7 @@ import { ArrowLeftIcon } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ExperienceBoxComplex } from '@/components/ExperienceBox';
 import { experience } from '@/data/ExperienceData';
-
-const pageVariants = {
-    initial: {
-        opacity: 0,
-        transform: 'translateZ(0)',
-    },
-    in: {
-        opacity: 1,
-        transform: 'translateZ(0)',
-    },
-    out: {
-        opacity: 0,
-        transform: 'translateZ(0)',
-    },
-};
-
-const pageTransition = {
-    type: 'tween',
-    ease: 'anticipate',
-    duration: 1,
-};
+import { pageTransition, pageVariants } from '@/lib/animations';
 
 const Experience = () => {
     return (
@@ -51,7 +31,7 @@ const Experience = () => {
                     </div>
                 </CardHeader>
                 <CardContent className="flex flex-col items-center justify-center w-full">
-                    <div className="w-full flex flex-col items-center justify-center sm:w-1/2 gap-4">
+                    <div className="w-full grid grid-cols-1 md:grid-cols-2 gap-4">
                         {experience.map((exp, index) => (
                             <ExperienceBoxComplex key={index} {...exp} />
                         ))}

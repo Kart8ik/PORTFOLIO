@@ -1,13 +1,13 @@
-import calpal from '@/assets/project-images/calpal.png'
-import p2pechovoid from '@/assets/project-images/p2pechovoid.png'
-import loopy from '@/assets/project-images/loopy.png'
-import leettrack from '@/assets/project-images/leettrack.png'
-import voiceaiplatform from '@/assets/project-images/voiceaiplatform.png'
-import portotui from '@/assets/project-images/portotui.png'
-import codeforensics from '@/assets/project-images/codeforensics.png'
-import fairy from '@/assets/project-images/fairy.png'
-import miniraftpaint98 from '@/assets/project-images/miniraftpaint98.png'
-import srrag from '@/assets/project-images/srrag.png'
+import calpal from '@/assets/project-images/calpal.png?w=480;960;1280&format=avif;webp;png&as=picture'
+import p2pechovoid from '@/assets/project-images/p2pechovoid.png?w=480;960;1280&format=avif;webp;png&as=picture'
+import loopy from '@/assets/project-images/loopy.png?w=480;960;1280&format=avif;webp;png&as=picture'
+import leettrack from '@/assets/project-images/leettrack.png?w=480;960;1280&format=avif;webp;png&as=picture'
+import voiceaiplatform from '@/assets/project-images/voiceaiplatform.png?w=480;960;1280&format=avif;webp;png&as=picture'
+import portotui from '@/assets/project-images/portotui.png?w=480;960;1280&format=avif;webp;png&as=picture'
+import codeforensics from '@/assets/project-images/codeforensics.png?w=480;960;1280&format=avif;webp;png&as=picture'
+import fairy from '@/assets/project-images/fairy.png?w=480;960;1280&format=avif;webp;png&as=picture'
+import miniraftpaint98 from '@/assets/project-images/miniraftpaint98.png?w=480;960;1280&format=avif;webp;png&as=picture'
+import srrag from '@/assets/project-images/srrag.png?w=480;960;1280&format=avif;webp;png&as=picture'
 
 export const projects = [
     {

@@ -21,27 +21,8 @@ import educationgif from '@/assets/section-gifs/educationicon.gif'
 import experiencegif from '@/assets/section-gifs/experienceicon.gif'
 import blogsgif from '@/assets/section-gifs/blogsicon.gif'
 import { projects } from '@/data/ProjectsData'
-
-const pageVariants = {
-    initial: {
-        opacity: 0,
-        transform: 'translateZ(0)',
-    },
-    in: {
-        opacity: 1,
-        transform: 'translateZ(0)',
-    },
-    out: {
-        opacity: 0,
-        transform: 'translateZ(0)',
-    },
-};
-
-const pageTransition = {
-    type: 'tween',
-    ease: 'anticipate',
-    duration: 1,
-};
+import { pageTransition, pageVariants } from '@/lib/animations'
+import OptimizedImage from '@/components/OptimizedImage'
 
 const First = () => {
   const scrollRef = useRef(null)
@@ -137,7 +118,7 @@ const First = () => {
                                 }
                             }}>
                                 <CardContent className="flex flex-col w-full h-full items-end justify-end">
-                                    <img src={projectgif} alt="Projects" className="w-1/2 h-auto img-glow glow-foreground" />
+                                    <OptimizedImage src={projectgif} alt="Projects" className="w-1/2 h-auto img-glow glow-foreground" loading="eager" fetchPriority="high" />
                                 </CardContent>
                             </Link>
                         )
@@ -193,7 +174,7 @@ const First = () => {
                                     }
                                 }}>
                                     <CardContent className="flex flex-col w-full h-full items-end justify-end">
-                                        <img src={skillgif} alt="Skills" className="w-2/3 h-auto img-glow glow-foreground" />
+                                        <OptimizedImage src={skillgif} alt="Skills" className="w-2/3 h-auto img-glow glow-foreground" loading="eager" fetchPriority="high" />
                                     </CardContent>
                                 </Link>
                             )}
@@ -209,16 +190,16 @@ const First = () => {
                         <Card className="flex w-full h-full flex-wrap py-0">
                             <div className="flex flex-col w-full h-full items-center justify-center sm:justify-between flex-wrap sm:flex-nowrap  gap-4 sm:gap-0">
                             <a href="https://github.com/kart8ik" target="_blank" rel="noopener noreferrer">
-                                <img src={github} alt="GitHub" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground"/>
+                                <OptimizedImage src={github} alt="GitHub" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground" loading="eager"/>
                             </a>
                             <a href="https://www.linkedin.com/in/a--shri--karthik/" target="_blank" rel="noopener noreferrer">
-                                <img src={linkedin} alt="LinkedIn" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground"/>
+                                <OptimizedImage src={linkedin} alt="LinkedIn" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground" loading="eager"/>
                             </a>
-                            <a href="/SHRI_KARTHIK_RESUME.pdf" download>
-                                <img src={resume} alt="Resume" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground"/>
+                            <a href="/SHRI_KARTHIK_RESUME.pdf" target="_blank" rel="noopener noreferrer">
+                                <OptimizedImage src={resume} alt="Resume" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground" loading="eager"/>
                             </a>
                             <a href="mailto:shrkrthk200518@gmail.com" target="_blank" rel="noopener noreferrer">
-                                <img src={email} alt="Email" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground"/>
+                                <OptimizedImage src={email} alt="Email" className="w-8 sm:w-11 h-8 sm:h-11 img-glow glow-foreground" loading="eager"/>
                             </a>
                             </div>
                         </Card>
@@ -264,7 +245,7 @@ const First = () => {
                         }}>
                             <CardContent className="flex flex-col w-full h-full items-end justify-end">
                               
-                                <img src={blogsgif} alt="Blogs" className="w-1/2 h-auto img-glow glow-foreground" />
+                                <OptimizedImage src={blogsgif} alt="Blogs" className="w-1/2 h-auto img-glow glow-foreground" loading="eager" fetchPriority="high" />
                             </CardContent>
                           </Link>
                         )}
@@ -298,20 +279,24 @@ const First = () => {
                             </motion.div>
                             }
                             {isSmallScreen && <motion.div className="flex items-center justify-center" style={{ flexBasis: imageFlexBasis, flexShrink: 0 }}>
-                            <motion.img src={profile} alt="Profile" style={{ width: imageSize, height: imageSize, filter: 'drop-shadow(0 0 5px rgba(42, 49, 85, 1))' }} className="rounded-md" />
+                            <motion.img src={profile} alt="Profile" loading="eager" fetchPriority="high" decoding="async" style={{ width: imageSize, height: imageSize, filter: 'drop-shadow(0 0 5px rgba(42, 49, 85, 1))' }} className="rounded-md" />
                             </motion.div>
                             }
                             {!isSmallScreen && <motion.div className="flex items-center justify-end" style={{ flexBasis: imageFlexBasisSmall, flexShrink: 0 }}>
-                            <motion.img src={profile} alt="Profile" style={{ width: imageSizeSmall, height: imageSizeSmall, filter: 'drop-shadow(0 0 5px rgba(42, 49, 85, 1))' }} className="rounded-md" />
+                            <motion.img src={profile} alt="Profile" loading="eager" fetchPriority="high" decoding="async" style={{ width: imageSizeSmall, height: imageSizeSmall, filter: 'drop-shadow(0 0 5px rgba(42, 49, 85, 1))' }} className="rounded-md" />
                             </motion.div>
                             }
                         </motion.div>
                     </div>
                     <motion.div className='absolute top-5/6 left-1/2 -translate-x-1/2 -translate-y-1/2' style={{ opacity: textOpacity }}>
-                        <div className='flex flex-col items-center justify-center gap-2 animate-bounce'>
+                        <motion.div
+                            className='flex flex-col items-center justify-center gap-2'
+                            animate={{ y: [0, -6, 0] }}
+                            transition={{ duration: 1.4, repeat: Infinity, ease: [0.22, 1, 0.36, 1] }}
+                        >
                             <h1 className='text-4xl apply-glow glow-foreground'>Scroll</h1>
                             <ArrowUpIcon className='w-10 h-10 img-glow glow-foreground' style={{ filter: 'drop-shadow(0 0 5px rgb(87, 100, 169))' }}/>
-                        </div>
+                        </motion.div>
                     </motion.div>
 
                     {/* Middle Right Box */}
@@ -341,7 +326,7 @@ const First = () => {
                             }
                         }}>
                             <CardContent className="flex flex-col w-full h-full items-end justify-end">
-                                <img src={educationgif} alt="Education" className="w-2/3 h-auto img-glow glow-foreground" />
+                                <OptimizedImage src={educationgif} alt="Education" className="w-2/3 h-auto img-glow glow-foreground" loading="eager" fetchPriority="high" />
                             </CardContent>
                           </Link>
                         )}
@@ -385,7 +370,7 @@ const First = () => {
                                     }
                                 }}>
                                     <CardContent className="flex flex-col w-full h-full items-end justify-end">
-                                        <img src={experiencegif} alt="Experience" className="w-1/2 h-auto img-glow glow-foreground" />
+                                        <OptimizedImage src={experiencegif} alt="Experience" className="w-1/2 h-auto img-glow glow-foreground" loading="eager" fetchPriority="high" />
                                     </CardContent>
                                 </Link>
                             )}

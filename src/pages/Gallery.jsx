@@ -10,27 +10,7 @@ import {
     instagramHandle,
     isInstagramConfigured,
 } from '@/config/instagram';
-
-const pageVariants = {
-    initial: {
-        opacity: 0,
-        transform: 'translateZ(0)',
-    },
-    in: {
-        opacity: 1,
-        transform: 'translateZ(0)',
-    },
-    out: {
-        opacity: 0,
-        transform: 'translateZ(0)',
-    },
-};
-
-const pageTransition = {
-    type: 'tween',
-    ease: 'anticipate',
-    duration: 1,
-};
+import { pageTransition, pageVariants } from '@/lib/animations';
 
 const InstagramFeedCard = ({ post, caption, instagramHandle, imageUrl }) => {
     const [isImageLoading, setIsImageLoading] = React.useState(true);
