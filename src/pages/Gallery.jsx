@@ -75,7 +75,7 @@ const Gallery = () => {
             exit={{ opacity: 0, transition: { duration: 0.3, ease: [0.25, 0.46, 0.45, 0.94] } }}
             transition={{ type: 'tween', duration: 0.9, ease: expandEase }}
         >
-            <Card className="w-full h-full overflow-y-auto no-scrollbar bg-card/50 backdrop-blur-sm border-3 border-glow glow-border rounded-md flex flex-col">
+            <Card className="w-full h-full overflow-y-auto no-scrollbar bg-card/50 backdrop-blur-sm border border-glow glow-border rounded-md flex flex-col">
                 <CardHeader>
                     <div className="flex items-center justify-between">
                         <CardTitle className="text-3xl apply-glow glow-foreground font-medium">

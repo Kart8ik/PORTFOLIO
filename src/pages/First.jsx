@@ -65,15 +65,12 @@ const First = () => {
   const imageSize = useTransform(scrollYProgress, animationRange, [208, 127]);
   const imageSizeSmall = useTransform(scrollYProgress, animationRange, [160, 61]);
   const padding = useTransform(scrollYProgress, animationRange, [28, 0]);
-  const blurValue = useTransform(scrollYProgress, animationRange, [0, 4]);
-  const backgroundBlur = useMotionTemplate`blur(${blurValue}px)`;
   const width = useTransform(scrollYProgress, animationRange, isSmallScreen ? ['470%', '100%'] : ['500%', '100%'])
   const height = useTransform(scrollYProgress, animationRange, isSmallScreen ? ['200%', '100%'] : ['600%', '100%'])
   return (
     <div className="w-screen h-screen relative">
         <motion.div
             className="absolute inset-0 z-0"
-            style={{ backdropFilter: backgroundBlur }}
         />
         <motion.div
             initial="initial"
@@ -93,7 +90,7 @@ const First = () => {
                         className="box1 col-start-1 col-end-6 row-start-1 row-end-7 sm:col-start-1 sm:col-end-7 sm:row-start-1 sm:row-end-6 z-20"
                         scrollYProgress={scrollYProgress}
                     >
-                        <div ref={projectsRef} className="w-full h-full rounded-lg overflow-hidden">
+                        <div ref={projectsRef} className="w-full h-full overflow-hidden">
                         <Card className="w-full h-full sm:gap-2">
                         <CardHeader>
                             <CardTitle className="text-2xl sm:text-3xl apply-glow glow-foreground font-medium ">Projects</CardTitle>
@@ -138,7 +135,7 @@ const First = () => {
                         className="box2 col-start-6 col-end-9 row-start-3 row-end-9 sm:col-start-7 sm:col-end-14 sm:row-start-1 sm:row-end-4 z-20"
                         scrollYProgress={scrollYProgress}
                         >
-                        <div ref={skillsRef} className="w-full h-full rounded-lg overflow-hidden">
+                        <div ref={skillsRef} className="w-full h-full overflow-hidden">
                         <Card className="w-full h-full gap-2">
                             <CardHeader>
                                 <CardTitle className="text-xl sm:text-3xl apply-glow glow-foreground font-medium ">Skills</CardTitle>
@@ -217,7 +214,7 @@ const First = () => {
                         className="box4 col-start-1 col-end-4 row-start-12 row-end-15 sm:col-start-1 sm:col-end-4 sm:row-start-6 sm:row-end-9 z-20"
                         scrollYProgress={scrollYProgress}
                     >
-                        <div ref={galleryRef} className="w-full h-full rounded-lg overflow-hidden">
+                        <div ref={galleryRef} className="w-full h-full overflow-hidden">
                         <Card className="flex flex-col w-full h-full">
                         <CardHeader className="flex flex-col h-full overflow-y-hidden">
                             <CardTitle className="text-lg sm:text-2xl apply-glow glow-foreground font-medium">Blogs & Gallery</CardTitle>
@@ -260,7 +257,7 @@ const First = () => {
                     {/* Middle Box with absolute centering */}
                     <div className="box5-container col-start-4 col-end-6 row-start-7 row-end-9 sm:col-start-7 sm:col-end-9 sm:row-start-4 sm:row-end-6 relative z-30">
                         <motion.div
-                        className="box5 absolute top-1/2 left-1/2 bg-card/50 backdrop-blur-sm border-3 border-glow glow-border rounded-md w-full h-full flex flex-col sm:flex-row  overflow-hidden"
+                        className="box5 absolute top-1/2 left-1/2 bg-card/50 backdrop-blur-xs border border-glow glow-border rounded-md w-full h-full flex flex-col sm:flex-row  overflow-hidden"
                         style={{
                             width,
                             height,
@@ -310,7 +307,7 @@ const First = () => {
                         className="box6 col-start-1 col-end-4 row-start-7 row-end-12 sm:col-start-4 sm:col-end-9 sm:row-start-6 sm:row-end-9 z-20"
                         scrollYProgress={scrollYProgress}
                     >
-                        <div ref={educationRef} className="w-full h-full rounded-lg overflow-hidden">
+                        <div ref={educationRef} className="w-full h-full overflow-hidden">
                         <Card className="w-all h-full">
                         <CardHeader>
                             <CardTitle className="text-lg sm:text-3xl apply-glow glow-foreground font-medium">Education</CardTitle>
@@ -345,7 +342,7 @@ const First = () => {
                         className="box7 col-start-4 col-end-9 row-start-9 row-end-15 sm:col-start-9 sm:col-end-15 sm:row-start-4 sm:row-end-9 z-20"
                         scrollYProgress={scrollYProgress}
                     >
-                        <div ref={experienceRef} className="w-full h-full rounded-lg overflow-hidden">
+                        <div ref={experienceRef} className="w-full h-full overflow-hidden">
                         <Card className="w-full h-full">
                             <CardHeader>
                             <CardTitle className="text-2xl sm:text-3xl apply-glow glow-foreground font-medium">Experience</CardTitle>
