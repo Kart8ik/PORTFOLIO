@@ -1,5 +1,5 @@
 import React from 'react'
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card'
+import { Card, CardContent, CardHeader, CardTitle } from './ui/card'
 import SkillBadge from './SkillBadge'
 import { ExternalLink } from 'lucide-react'
 
@@ -12,12 +12,12 @@ export const ExperienceBoxBasic = ({company, position, duration, location, descr
                 <div className="text-foreground sm:text-foreground text-sm apply-glow glow-foreground font-light">{location}</div>
             </div>
             <div className="flex flex-col items-center justify-center">
-                <CardDescription className="apply-glow glow-card-foreground font-medium">{position}</CardDescription>
-                <CardDescription className="text-foreground sm:text-foreground text-sm apply-glow glow-foreground font-light">{duration}</CardDescription>
+                <div className="apply-glow glow-card-foreground font-medium">{position}</div>
+                <div className="text-foreground sm:text-foreground text-sm apply-glow glow-foreground font-light">{duration}</div>
             </div>
         </CardHeader>
         <CardContent className="sm:px-4 mt-2">
-            <CardDescription className="text-foreground sm:text-foreground text-sm apply-glow glow-card-foreground font-light">{description}</CardDescription>
+            <div className="text-foreground text-sm apply-glow glow-foreground font-light">{description}</div>
         </CardContent>
     </Card>
   )
@@ -32,8 +32,8 @@ export const ExperienceBoxComplex = ({company, position, duration, location, lin
                 <div className="text-foreground sm:text-foreground text-sm apply-glow glow-foreground font-light">{location}</div>
             </div>
             <div className="flex flex-col items-center justify-center">
-                <CardDescription className="text-foreground sm:text-foreground text-sm apply-glow glow-foreground font-light">{position}</CardDescription>
-                <CardDescription className="apply-glow glow-foreground font-light">{duration}</CardDescription>
+                <div className="text-foreground sm:text-foreground text-sm apply-glow glow-foreground font-light">{position}</div>
+                <div className="apply-glow glow-card-foreground font-light">{duration}</div>
             </div>
         </CardHeader>
         <CardContent className="flex flex-col gap-4">
@@ -53,7 +53,7 @@ export const ExperienceBoxComplex = ({company, position, duration, location, lin
                                     <ExternalLink size={14} />
                                 </a>
                             )}
-          <CardDescription className="text-foreground sm:text-foreground text-sm apply-glow glow-card-foreground font-light">{description}</CardDescription>
+          <div className="text-foreground text-sm apply-glow glow-foreground font-light">{description}</div>
         </CardContent>
     </Card>
   )

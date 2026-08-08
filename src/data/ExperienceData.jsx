@@ -2,6 +2,15 @@ import technovisionCertificate from '../assets/certificates/technovision-certifi
 
 export const experience = [
     {
+        company: 'Glance-InMobi',
+        position: 'SDE Intern',
+        duration: 'May 2026 - Jul 2026',
+        location: 'Bengaluru, India',
+        link: null,
+        description: 'Designed and developed a production-grade content scoring service using FastAPI and Kafka, integrating engagement, trend, metadata, publisher trust, and semantic similarity signals to rank content for personalized feeds.',
+        skills: ['python', 'fastapi', 'kafka', 'postgresql', 'gemini', 'vertex ai']
+    },
+    {
         company: 'TechnoVision',
         position: 'Software Developer',
         duration: 'Dec 2025 - Jan 2026',
