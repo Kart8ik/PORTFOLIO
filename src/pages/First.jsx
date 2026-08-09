@@ -349,7 +349,7 @@ const First = () => {
                             </CardHeader>
                             {isSmallScreen ? (
                             <>
-                            <CardContent className="overflow-hidden flex flex-col h-full gap-2 overflow-fade-v">
+                            <CardContent className="overflow-hidden overflow-fade-v flex flex-col h-full gap-2">
                             {experience.map((experience, index) => (
                                 <ExperienceBoxBasic key={index} {...experience} />
                             ))}
