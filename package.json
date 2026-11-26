@@ -39,6 +39,6 @@
     "globals": "^16.0.0",
     "tw-animate-css": "^1.3.4",
     "vite": "^6.3.5",
-    "vite-imagetools": "^12.0.2"
+    "vite-imagetools": "^7.1.1"
   }
 }
