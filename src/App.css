@@ -13,6 +13,15 @@
   z-index: 2;
 }
 
+.crt-screen-fx {
+  position: fixed;
+  inset: 0;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+  filter: url(#crt-post-fx);
+}
+
 /* Particle background container */
 #tsparticles {
   position: fixed !important;

@@ -1,5 +1,6 @@
 import { AnimatePresence } from 'framer-motion';
 import ParticlesBackground from './components/ParticlesBackground';
+import CRTOverlay from './components/CRTOverlay';
 import './App.css';
 import First from './pages/First';
 import Skills from './pages/Skills';
@@ -34,8 +35,11 @@ function App() {
 function AppWrapper() {
   return (
     <Router>
-      <ParticlesBackground /> 
-      <App /> 
+      <div className="crt-screen-fx">
+        <ParticlesBackground /> 
+        <App /> 
+      </div>
+      <CRTOverlay />
     </Router>
   )
 }
